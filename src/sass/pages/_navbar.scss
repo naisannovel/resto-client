@@ -1,0 +1,105 @@
+.navbar__main__container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+
+    & .navbar__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+
+        & .navbar__logo {
+            z-index: 1111;
+
+            & svg {
+                color: $primary-color;
+                font-size: 3rem;
+            }
+
+            & span {
+                font-size: 3rem;
+                color: $secondary-color;
+                font-weight: 700;
+            }
+        }
+
+        & .navbar__nav {
+            @include respond(tablet) {
+                position: absolute;
+                transition: .5s;
+                top: -500%;
+                left: 0;
+                right: 0;
+                background: #eee;
+                text-align: center;
+
+                // & .show__navbar {
+                //     left: 0;
+                // }
+
+                & a {
+                    display: block;
+                    margin-top: 1.5rem;
+
+                    &:nth-child(6) {
+                        margin-bottom: 1rem;
+                    }
+                }
+            }
+
+            & a {
+                font-size: 1.6rem;
+                color: $tertiary-color;
+                text-decoration: none;
+
+                &:not(:last-child) {
+                    margin-right: 1rem;
+                }
+            }
+        }
+
+        & .navbar__icon {
+            display: flex;
+            align-items: center;
+            z-index: 1111;
+
+            &>:not(:last-child) {
+                margin-right: 1rem;
+            }
+
+            & svg {
+                color: $secondary-color;
+                font-size: 1.8rem;
+            }
+
+            & .navbar__cart__icon {
+                position: relative;
+
+                & .navbar__cart__count__container {
+                    position: absolute;
+                    background-color: $secondary-color;
+                    color: white;
+                    top: 0;
+                    right: 0;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    border-radius: 50%;
+                    @include center-flex;
+                }
+            }
+
+            & .navbar__bar__icon,
+            & .navbar__cross__icon {
+                @include center-flex;
+                display: none;
+
+                @include respond(tablet) {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

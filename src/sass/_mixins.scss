@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+@mixin navbar-icon-bg {
+
+}
+
 // RESPONSIVE
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {

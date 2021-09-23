@@ -1,0 +1,11 @@
+.navbar-icon-hover{
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #e6e3e6;
+    @include center-flex;
+    &:hover{
+        background-color: $tertiary-color;
+    }
+}
