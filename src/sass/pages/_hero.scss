@@ -1,6 +1,7 @@
 .hero__swiper__container {
-    width: 100vw;
-    & .swiper-button-next::after,.swiper-button-prev::after { font-size: 1.8rem; }
+    @include respond(tablet){
+        & .swiper-button-next::after,.swiper-button-prev::after { font-size: 1.8rem; }
+    }
     & .hero__slider__img__container {
         @include respond(tablet) {
             @include center-flex;

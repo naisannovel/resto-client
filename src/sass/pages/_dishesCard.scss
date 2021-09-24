@@ -1,0 +1,50 @@
+.popular__dishes__card__container {
+    width: 25%;
+    background-color: white;
+    border: 1px solid gainsboro;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    &:hover{
+        & .popular__dishes__card__eye__icon{
+            display: flex;
+        }
+    }
+
+    & .popular__dishes__card__eye__icon {
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        display: none;
+
+        & svg {
+            font-size: 1.4rem;
+            color: $primary-color;
+        }
+    }
+
+    & h4 {
+        color: $secondary-color;
+        font-size: 2.2rem;
+    }
+
+    & .popular__dishes__card__review__container {
+        margin: 1.5rem 0;
+
+        & svg {
+            font-size: 1.6rem;
+            color: $primary-color;
+        }
+    }
+
+    & .popular__dishes__card__price__container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        & h5 {
+            color: $primary-color;
+            font-size: 2rem;
+        }
+    }
+}

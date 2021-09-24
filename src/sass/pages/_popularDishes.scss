@@ -1,0 +1,19 @@
+.popular__dishes__main__container {
+    background-color: #F0EEF0;
+    text-align: center;
+    margin-top: 3rem;
+    padding: 3rem 0;
+    & p {
+        color: $primary-color;
+        font-size: 2rem;
+        margin-bottom: .4rem;
+        text-transform: capitalize;
+    }
+
+    & h3 {
+        color: $secondary-color;
+        font-size: 3.5rem;
+        margin-bottom: 4rem;
+        text-transform: uppercase;
+    }
+}
