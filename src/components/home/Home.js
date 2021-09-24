@@ -5,16 +5,18 @@ import Hero from './Hero';
 import Navbar from './Navbar';
 import Dishes from './Dishes';
 import Review from './Review';
+import Cart from './Cart';
 
 const Home = () => {
     return (
         <div>
             <Navbar/>
-            <Hero/>
+            {/* <Hero/>
             <Dishes/>
             <About/>
             <Review/>
-            <Footer/>
+            <Footer/> */}
+            <Cart/>
         </div>
     );
 };
