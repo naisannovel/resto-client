@@ -22,8 +22,10 @@ const Cart = () => {
                                 <h5 style={{color:'red'}}>remove</h5>
                             </div>
                         </div>
-                        <div style={{width:'25%'}}>
-
+                        <div className='d-flex justify-content-center align-items-center' style={{width:'25%'}}>
+                            <span style={{fontSize:'25px',cursor:'pointer'}}>-</span>
+                            <span className='d-flex justify-content-center align-items-center mx-2' style={{width:'40px',height:'30px',border:'1px solid #F0EEF0',background:'white',fontSize:'14px'}}>2</span>
+                            <span style={{fontSize:'25px',cursor:'pointer'}}>+</span>
                         </div>
                         <div className='d-flex justify-content-center align-items-center' style={{width:'25%'}}>
                             <h5>$254.99</h5>
