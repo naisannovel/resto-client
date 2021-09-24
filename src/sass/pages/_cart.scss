@@ -2,10 +2,20 @@
     display: flex;
     position: relative;
     & .cart__item__container{
-        width: 75%;
+        width: 70%;
+        & .cart__item__details{
+            width: 80%;
+            border: 1px solid crimson;
+            margin: auto;
+            & h1{
+                color: $secondary-color;
+                text-align: center;
+                margin-top: 1.9rem;
+            }
+        }
     }
     & .cart__item__price__container{
-        width: 25%;
+        width: 30%;
         height: 100%;
         position: fixed;
         top: 10%;

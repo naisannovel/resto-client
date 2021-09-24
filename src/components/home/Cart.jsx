@@ -1,11 +1,14 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {  Form, FormGroup, Label, Input } from 'reactstrap';
 
 const Cart = () => {
     return (
         <div className='cart__item__main__container container-fluid'>
             <div className='cart__item__container'>
-                
+                <div className="cart__item__details">
+                    <h1>Shopping Cart</h1>
+                    <hr />
+                </div>
             </div>
             <div className="cart__item__price__container">
                 <div className="cart__checkout__container">
