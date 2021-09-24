@@ -74,15 +74,6 @@ const Cart = () => {
               />
             </FormGroup>
             <FormGroup className="mt-3">
-              <Label for="email">Email</Label>
-              <Input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Enter Your Email"
-              />
-            </FormGroup>
-            <FormGroup className="mt-3">
               <Label for="number">Number</Label>
               <Input
                 type="number"
@@ -97,7 +88,7 @@ const Cart = () => {
             </FormGroup>
           </Form>
           <div className="cart__total__price">
-            <span>Items 3</span>
+            <span>Total Price</span>
             <span>$245</span>
           </div>
           <div style={{ textAlign: "center", marginTop: "15px" }}>
