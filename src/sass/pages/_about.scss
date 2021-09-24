@@ -1,0 +1,12 @@
+.about__main__container{
+    & .about__content__container{
+        & h3{
+            font-size: 2.8rem;
+            text-transform: capitalize;
+        }
+        & p{
+            font-size: 1.6rem;
+            color: $tertiary-color;
+        }
+    }
+}

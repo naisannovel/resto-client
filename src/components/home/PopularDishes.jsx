@@ -5,8 +5,10 @@ const PopularDishes = () => {
     return (
         <div className='container-fluid popular__dishes__main__container'>
             <div className="container">
-                <p>Our Dishes</p>
-                <h3>POPULAR DISHES</h3>
+                <div className="title">
+                    <p>Our Dishes</p>
+                    <h3>POPULAR DISHES</h3>
+                </div>
                 <DishesCard/>
             </div>
         </div>

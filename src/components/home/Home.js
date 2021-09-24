@@ -1,4 +1,5 @@
 import React from 'react';
+import About from './About';
 import Hero from './Hero';
 import Navbar from './Navbar';
 import PopularDishes from './PopularDishes';
@@ -9,6 +10,7 @@ const Home = () => {
             <Navbar/>
             <Hero/>
             <PopularDishes/>
+            <About/>
         </div>
     );
 };
