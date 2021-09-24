@@ -17,12 +17,10 @@ const [toggle,setToggle] = useState(false);
                 <a href="#">Home</a>
                 <a href="#">Dishes</a>
                 <a href="#">About</a>
-                <a href="#">Menu</a>
                 <a href="#">Review</a>
-                <a href="#">Order</a>
         </div>
         <div className="navbar__icon">
-            <div className='navbar-icon-hover'><FontAwesomeIcon icon={faHeart} /></div>
+            {/* <div className='navbar-icon-hover'><FontAwesomeIcon icon={faHeart} /></div> */}
             <div className='navbar__cart__icon navbar-icon-hover'>
                 <FontAwesomeIcon icon={faShoppingCart} />
                 <span className='navbar__cart__count__container'>5</span>

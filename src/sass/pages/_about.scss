@@ -1,5 +1,11 @@
 .about__main__container{
     & .about__content__container{
+        @include respond(tablet){
+            display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        }
         display: flex;
         justify-content: center;
         flex-direction: column;
