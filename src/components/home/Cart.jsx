@@ -13,6 +13,17 @@ const Cart = () => {
                         <div style={{width:'25%',textAlign:'center'}}>Quantity</div>
                         <div style={{width:'25%',textAlign:'center'}}>Total Price</div>
                     </div>
+                    <div className="cart__item__table__header">
+                        <div style={{width:'50%'}}>
+
+                        </div>
+                        <div style={{width:'25%'}}>
+
+                        </div>
+                        <div style={{width:'25%'}}>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="cart__item__price__container">
