@@ -1,12 +1,38 @@
 .about__main__container{
     & .about__content__container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
         & h3{
             font-size: 2.8rem;
             text-transform: capitalize;
+            margin-bottom: 1.5rem;
         }
         & p{
             font-size: 1.6rem;
             color: $tertiary-color;
+        }
+        & .about__icons__container{
+            display: flex;
+            margin: 2rem 0;
+            & .about__icons{
+                background-color: #F0EEF0;
+                border: 1px solid gainsboro;
+                padding: .8rem 1.2rem;
+                &:not(:first-child){
+                    margin-left: 1rem;
+                }
+                & svg{
+                    color: $primary-color;
+                    font-size: 1.6rem;
+                    margin-right: .5rem;
+                }
+                & span{
+                    font-size: 1.6rem;
+                    color: $tertiary-color;
+                }
+            }
         }
     }
 }
