@@ -59,7 +59,7 @@ const Cart = () => {
           {cartItem}
         </div>
       </div>
-      <div className="cart__item__price__container">
+      <div className="cart__item__checkout__container">
         <div className="cart__checkout__container">
           <h1>Checkout</h1>
           <hr />
