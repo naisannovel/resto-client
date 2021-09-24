@@ -1,0 +1,40 @@
+.footer__main__container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5rem;
+
+    & .footer__content__container {
+        display: flex;
+        flex-direction: column;
+
+        & h3 {
+            font-size: 2.2rem;
+            color: $secondary-color;
+            text-transform: capitalize;
+            margin-bottom: 1rem;
+        }
+
+        & a {
+            font-size: 1.6rem;
+            color: $tertiary-color;
+            text-transform: capitalize;
+            text-decoration: none;
+
+            &:not(:last-child) {
+                margin-bottom: .8rem;
+            }
+        }
+    }
+}
+
+.footer__credit {
+    background-color: #F0EEF0;
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1rem 0;
+    font-size: 1.6rem;
+
+    & span {
+        color: $primary-color;
+    }
+}
