@@ -1,45 +1,51 @@
-.popular__dishes__card__container {
+.dishes__card__container {
     width: 25%;
-    background-color: white;
-    border: 1px solid gainsboro;
-    text-align: center;
-    padding: 2rem;
+    padding: .5rem;
     position: relative;
-    &:hover{
-        & .popular__dishes__card__eye__icon{
-            display: flex;
-        }
-    }
 
-    & .popular__dishes__card__eye__icon {
+    & .dishes__card__eye__icon {
         position: absolute;
         top: 2%;
-        left: 2%;
-        display: none;
+        right: 3%;
+        transition: .5s;
+
+        &:hover {
+            background-color: $primary-color !important;
+
+            & svg {
+                color: white !important;
+            }
+        }
 
         & svg {
             font-size: 1.4rem;
+            color: $secondary-color;
+        }
+    }
+
+
+    & .dishes__card__review__container {
+        margin: .8rem 0;
+
+        & svg {
+            font-size: 1.2rem;
             color: $primary-color;
         }
     }
 
-    & h4 {
+    & h5 {
         color: $secondary-color;
         font-size: 2.2rem;
     }
 
-    & .popular__dishes__card__review__container {
-        margin: 1.5rem 0;
-
-        & svg {
-            font-size: 1.6rem;
-            color: $primary-color;
-        }
+    & .dishes__card__paragraph {
+        font-size: 1.5rem;
+        color: $tertiary-color;
     }
 
-    & .popular__dishes__card__price__container {
+    & .dishes__card__price__container {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
 
         & h5 {

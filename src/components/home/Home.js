@@ -3,6 +3,7 @@ import About from './About';
 import Hero from './Hero';
 import Navbar from './Navbar';
 import PopularDishes from './PopularDishes';
+import Review from './Review';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Hero/>
             <PopularDishes/>
             <About/>
+            <Review/>
         </div>
     );
 };
