@@ -2,4 +2,46 @@
     background-color: #F0EEF0;
     margin-top: 3rem;
     padding: 3rem 0;
+
+    & .review__slide__container{
+        background-color: white;
+        padding: 4rem 2.5rem;
+        border: 1px solid gainsboro;
+        & .review__user__info__container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            & .review__user__info{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                & img{
+                    width: 6rem;
+                    height: 6rem;
+                    border-radius: 50%;
+                }
+                & h3{
+                    font-size: 1.6rem;
+                    color: $secondary-color;
+                    margin: 0 !important;
+                    font-weight: 700;
+                }
+                & p{
+                    font-size: 1.4rem;
+                    color: $primary-color;
+                    margin: 0 !important;
+                    font-weight: 500;
+                }
+            }
+            & svg{
+                font-size: 4rem;
+                opacity: .2;
+            }
+        }
+        & p{
+            font-size: 1.5rem;
+            color: $tertiary-color;
+            margin-top: 1rem;
+        }
+    }
 }
