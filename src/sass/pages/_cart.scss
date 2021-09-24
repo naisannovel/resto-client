@@ -16,6 +16,17 @@
                 display: flex;
                 font-size: 1.5rem;
                 color: $tertiary-color;
+                margin-bottom: 3rem;
+            }
+            & .cart__item{
+                width: 100%;
+                display: flex;
+                border: 1px solid crimson;
+                & img{
+                    width: 8rem;
+                    height: 8rem;
+                    object-fit: cover;
+                }
             }
         }
     }

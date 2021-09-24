@@ -13,15 +13,20 @@ const Cart = () => {
                         <div style={{width:'25%',textAlign:'center'}}>Quantity</div>
                         <div style={{width:'25%',textAlign:'center'}}>Total Price</div>
                     </div>
-                    <div className="cart__item__table__header">
-                        <div style={{width:'50%'}}>
-
+                    <div className="cart__item">
+                        <div className='d-flex align-items-center' style={{width:'50%'}}>
+                            <img src="assets/images/dish-7.jpg" alt="CartItem" />
+                            <div style={{marginLeft:'20px'}}>
+                                <h5>Tasty Food</h5>
+                                <h4>$24</h4>
+                                <h5 style={{color:'red'}}>remove</h5>
+                            </div>
                         </div>
                         <div style={{width:'25%'}}>
 
                         </div>
-                        <div style={{width:'25%'}}>
-                            
+                        <div className='d-flex justify-content-center align-items-center' style={{width:'25%'}}>
+                            <h5>$254.99</h5>
                         </div>
                     </div>
                 </div>
