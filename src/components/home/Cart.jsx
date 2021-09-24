@@ -8,6 +8,11 @@ const Cart = () => {
                 <div className="cart__item__details">
                     <h1>Shopping Cart</h1>
                     <hr />
+                    <div className="cart__item__table__header">
+                        <div style={{width:'50%'}}>Product Details</div>
+                        <div style={{width:'25%',textAlign:'center'}}>Quantity</div>
+                        <div style={{width:'25%',textAlign:'center'}}>Total Price</div>
+                    </div>
                 </div>
             </div>
             <div className="cart__item__price__container">
