@@ -8,28 +8,54 @@ import 'swiper/components/pagination/pagination.min.css'
 SwiperCore.use([EffectFade, Navigation, Pagination]);
 
 const Hero = () => {
+
+  const data = [
+    {
+    subHeader:"our special dish",
+    header:"spicy noodles",
+    paragraph: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque",
+    image: "assets/images/home-img-1.png"
+    },
+    {
+    subHeader:"our special dish",
+    header:"fried chicken",
+    paragraph: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque",
+    image: "assets/images/home-img-2.png"
+    },
+    {
+    subHeader:"our special dish",
+    header:"hot pizza",
+    paragraph: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque",
+    image: "assets/images/home-img-3.png"
+    }
+    ]
+
+    const slider = data.map(item =>(
+      <SwiperSlide>
+      <div className="container row m-auto" style={{width:'100%',height:'100%'}}>
+        <div className="col-md-6 order-md-1 order-2 hero__content__container">
+          <h4> {item.subHeader} </h4>
+          <h1> { item.header } </h1>
+          <p> { item.paragraph } </p>
+          <button className='primary__btn'>Order Now</button>
+        </div>
+        <div className="col-md-6 order-md-2 order-1 hero__slider__img__container">
+            <img src={item.image} className='hero__slider__img' alt="slider" />
+        </div>
+      </div>
+    </SwiperSlide>
+    ))
+
   return (
     <div>
       <Swiper
-        effect={"fade"}
         navigation={true}
         pagination={{
           clickable: true,
         }}
-        className="mySwiper"
+        className="hero__swiper__container"
       >
-        <SwiperSlide>
-          <img style={{width:'100vw',height:'90vh'}} src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img style={{width:'100vw',height:'90vh'}} src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img style={{width:'100vw',height:'90vh'}} src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img style={{width:'100vw',height:'90vh'}} src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
+        { slider }
       </Swiper>
     </div>
   );
