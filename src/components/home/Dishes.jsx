@@ -1,7 +1,7 @@
 import React from 'react';
 import DishesCard from './DishesCard';
 
-const PopularDishes = () => {
+const Dishes = () => {
     return (
         <div className='container-fluid popular__dishes__main__container'>
             <div className="container">
@@ -15,4 +15,4 @@ const PopularDishes = () => {
     );
 };
 
-export default PopularDishes;
+export default Dishes;

@@ -3,7 +3,7 @@ import About from './About';
 import Footer from './Footer';
 import Hero from './Hero';
 import Navbar from './Navbar';
-import PopularDishes from './PopularDishes';
+import Dishes from './Dishes';
 import Review from './Review';
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
         <div>
             <Navbar/>
             <Hero/>
-            <PopularDishes/>
+            <Dishes/>
             <About/>
             <Review/>
             <Footer/>

@@ -6,28 +6,26 @@ const Footer = () => {
         <div className='container footer__main__container'>
             <div className="footer__content__container">
                 <h3>locations</h3>
-                <a href="#">india</a>
-                <a href="#">japan</a>
+                <a href="#">Bangladesh</a>
+                <a href="#">China</a>
                 <a href="#">russia</a>
                 <a href="#">USA</a>
-                <a href="#">france</a>
+                <a href="#">France</a>
             </div>
             <div className="footer__content__container">
                 <h3>quick links</h3>
                 <a href="#">home</a>
                 <a href="#">dishes</a>
                 <a href="#">about</a>
-                <a href="#">menu</a>
                 <a href="#">reivew</a>
-                <a href="#">order</a>
             </div>
             <div className="footer__content__container">
                 <h3>contact info</h3>
                 <a href="#">+123-456-7890</a>
                 <a href="#">+111-222-3333</a>
-                <a href="#">shaikhanas@gmail.com</a>
-                <a href="#">anasbhai@gmail.com</a>
-                <a href="#">mumbai, india - 400104</a>
+                <a href="#">naisannovel@gmail.com</a>
+                <a href="#">naisan@yahoo.com</a>
+                <a href="#">Dhaka, Bangladesh - 1216</a>
             </div>
             <div className="footer__content__container">
                 <h3>follow us</h3>

@@ -13,9 +13,9 @@ const DishesCard = () => {
   return (
     <div>
       <Card className='dishes__card__container'>
-        <div className="navbar-icon-hover dishes__card__eye__icon">
+        {/* <div className="navbar-icon-hover dishes__card__eye__icon">
           <FontAwesomeIcon icon={faEye} />
-        </div>
+        </div> */}
         <CardImg
           top
           width="100%"
@@ -24,12 +24,12 @@ const DishesCard = () => {
         />
         <CardBody>
         <div className="dishes__card__review__container">
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-        <FontAwesomeIcon icon={faStar} />
-      </div>
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+          <FontAwesomeIcon icon={faStar} />
+        </div>
           <CardTitle tag="h5">Card title</CardTitle>
           <CardText className='dishes__card__paragraph'>
             Some quick example text to build on the card title and make up the
@@ -40,7 +40,7 @@ const DishesCard = () => {
             <h5>$15.99</h5>
           </div>
         </CardBody>
-      </Card>
+      </Card> 
     </div>
   );
 };
