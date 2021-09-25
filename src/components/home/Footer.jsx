@@ -20,7 +20,7 @@ const Footer = () => {
             </div>
             <div data-aos="zoom-in" className="footer__content__container">
                 <h3>contact info</h3>
-                <a href="#">+123-456-7890</a>
+                <a href="#">+88 01646-068658</a>
                 <a href="#">naisannovel@gmail.com</a>
                 <a href="#">naisan@yahoo.com</a>
                 <a href="#">Dhaka, Bangladesh - 1216</a>

@@ -8,8 +8,8 @@ const Main = () => {
     return (
         <div>
             <Home/>
-            {/* <Dashboard/>
-            <Login/>
+            {/* <Dashboard/> */}
+            {/* <Login/>
             <SignUp/> */}
         </div>
     );

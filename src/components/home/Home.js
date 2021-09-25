@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import Dishes from './Dishes';
 import Review from './Review';
 import Cart from './Cart';
+import Spinner from '../utilities/Spinner';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <Review/>
             <Footer/>
             {/* <Cart/> */}
+            {/* <Spinner/> */}
 
         </div>
     );
