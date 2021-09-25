@@ -24,6 +24,22 @@
     }
 }
 
+.navbar__logo {
+    z-index: 1111;
+
+    & svg {
+        color: $primary-color;
+        font-size: 3rem;
+    }
+
+    & span {
+        font-size: 3rem;
+        color: $secondary-color;
+        font-weight: 700;
+    }
+}
+
+
 .title{
     text-align: center;
     & p {
@@ -39,4 +55,9 @@
         margin-bottom: 4rem;
         text-transform: uppercase;
     }
+}
+
+.form__error__style{
+    color: red;
+    font-size: 1.4rem;
 }
