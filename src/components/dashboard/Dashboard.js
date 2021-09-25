@@ -1,33 +1,49 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Navbar, NavbarText } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList, faPlusSquare, faThList, faSignOutAlt, faUtensils } from "@fortawesome/free-solid-svg-icons";
-import AddDish from './AddDish';
-import ManageDish from "./ManageDish";
-import OrderList from "./OrderList";
+import { Link, Route, useRouteMatch, useHistory } from "react-router-dom";
+import { logOut } from '../utilities/authUtilities';
+import Spinner from '../utilities/Spinner';
+
+const OrderList = lazy(()=> import('./OrderList'));
+const AddDish = lazy(()=> import('./AddDish'));
+const ManageDish = lazy(()=> import('./ManageDish'));
+
 
 const Dashboard = () => {
 
-    
+  const history = useHistory();
+  const { path, url } = useRouteMatch();
+
     const dashboardSidebar = (
       <>
-        <a href=''>
+        <Link to={`${url}/order-list`}>
           <FontAwesomeIcon icon={faList} /> Order List
-        </a>
-        <a href=''>
-          <FontAwesomeIcon icon={faPlusSquare} /> Add Services
-        </a>
-        <a href=''>
-          <FontAwesomeIcon icon={faThList} /> Manage Services
-        </a>
+        </Link>
+        <Link to={`${url}/add-dish`}>
+          <FontAwesomeIcon icon={faPlusSquare} /> Add Dish
+        </Link>
+        <Link to={`${url}/manage-dish`}>
+          <FontAwesomeIcon icon={faThList} /> Manage Dishes
+        </Link>
       </>
+    );
+
+    const dashboardRouting = (
+        <Suspense fallback={<Spinner/>}>
+            <Route path={`${path}/order-list`} exact component={OrderList} />
+            <Route path={`${path}/add-dish`} exact component={AddDish} />
+            <Route path={`${path}/manage-dish`} exact component={ManageDish} />
+            <Route path={`${path}`} exact component={OrderList} />
+        </Suspense>
     );
 
   return (
     <div className="sidebar__main__container">
       <div className="sidebar__nav__container">
         <Navbar style={{ width: "90%", margin: "0 auto" }}>
-        <div className="navbar__logo">
+        <div className="navbar__logo" onClick={()=>history.push('/')}>
           <FontAwesomeIcon icon={faUtensils} />
           <span>Resto.</span>
         </div>
@@ -43,16 +59,12 @@ const Dashboard = () => {
         <div className="sidebar">
           <div class="sidebar__nav">
             {dashboardSidebar}
-            <a href='' className="sidebar__nav__last__child">
+            <Link to='/' onClick={()=>logOut()} className="sidebar__nav__last__child">
               <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
-            </a>
+            </Link>
           </div>
         </div>
-        <div className="sidebar__dashboard__routing">
-          {/* <AddDish/> */}
-          {/* <ManageDish/> */}
-          <OrderList/>
-        </div>
+        <div className="sidebar__dashboard__routing"> { dashboardRouting } </div>
       </div>
     </div>
   );

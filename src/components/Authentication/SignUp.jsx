@@ -48,7 +48,7 @@ const SignUp = () => {
           </p>
         </div>
       </div>
-      <div className="col-md-6">
+      <div className="col-md-6"> 
         <img src="assets/images/signup.jpg" alt="signup icon" />
       </div>
     </div>

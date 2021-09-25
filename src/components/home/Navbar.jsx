@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faShoppingCart, faTimes, faUtensils } from "@fortawesome/free-solid-svg-icons";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
 import { Link, animateScroll } from "react-scroll";
 
 const Navbar = () => {
@@ -21,7 +21,8 @@ const [toggle,setToggle] = useState(false);
                 <Link to='dish' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Dishes</Link>
                 <Link to='about' smooth={true} duration={300} exact='true' offset={-65} spy={true}>About</Link>
                 <Link to='review' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Review</Link>
-                <button onClick={()=> history.push('/login')} className='primary__btn'>Log In</button>
+                <Link onClick={()=>history.push('/admin/dashboard')} >Dashboard</Link>
+                <button onClick={()=> history.push('/login')} className='primary__btn my-md-0 my-4'>Log In</button>
         </div>
         <div className="navbar__icon">
             {/* <div className='navbar-icon-hover'><FontAwesomeIcon icon={faHeart} /></div> */}
