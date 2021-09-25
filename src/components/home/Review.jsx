@@ -60,7 +60,7 @@ const Review = () => {
     ))
 
   return (
-    <div className='review__main__container'>
+    <div className='review__main__container' id='review'>
       <div className="title">
         <p>About Us</p>
         <h3>why choose us?</h3>

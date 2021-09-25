@@ -10,7 +10,7 @@
     }
 }
 
-.primary__btn{
+.primary__btn {
     padding: .6rem 1.8rem;
     background-color: $secondary-color;
     color: white;
@@ -25,6 +25,7 @@
 }
 
 .navbar__logo {
+    cursor: pointer;
     z-index: 1111;
 
     & svg {

@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faHeart, faShoppingCart, faTimes, faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faShoppingCart, faTimes, faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
+import { Link, animateScroll } from "react-scroll";
 
 const Navbar = () => {
+const history = useHistory()
 
 const [toggle,setToggle] = useState(false);
 
   return (
     <nav className="container-fluid navbar__main__container bg-light">
       <div className="container navbar__container">
-        <div className="navbar__logo">
+        <div className="navbar__logo" onClick={()=> { history.push('/'); animateScroll.scrollToTop();}}>
           <FontAwesomeIcon icon={faUtensils} />
           <span>Resto.</span>
         </div>
         <div className='navbar__nav' style={{top: !toggle ? '':'100%'}}>
-                <a href="#">Home</a>
-                <a href="#">Dishes</a>
-                <a href="#">About</a>
-                <a href="#">Review</a>
+                <Link to='home' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Home</Link>
+                <Link to='dish' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Dishes</Link>
+                <Link to='about' smooth={true} duration={300} exact='true' offset={-65} spy={true}>About</Link>
+                <Link to='review' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Review</Link>
+                <button onClick={()=> history.push('/login')} className='primary__btn'>Log In</button>
         </div>
         <div className="navbar__icon">
             {/* <div className='navbar-icon-hover'><FontAwesomeIcon icon={faHeart} /></div> */}

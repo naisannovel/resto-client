@@ -1,26 +1,23 @@
-import React from 'react';
-import About from './About';
-import Footer from './Footer';
-import Hero from './Hero';
-import Navbar from './Navbar';
-import Dishes from './Dishes';
-import Review from './Review';
-import Cart from './Cart';
+import React, { lazy, Suspense } from 'react';
 import Spinner from '../utilities/Spinner';
+const Navbar = lazy(()=> import('./Navbar'));
+const Hero = lazy(()=> import('./Hero'));
+const Dishes = lazy(()=> import('./Dishes'));
+const About = lazy(()=> import('./About'));
+const Review = lazy(()=> import('./Review'));
+const Footer = lazy(()=> import('./Footer'));
+
 
 const Home = () => {
     return (
-        <div>
+        <Suspense fallback={<Spinner/>}>
             <Navbar/>
             <Hero/>
             <Dishes/>
             <About/>
             <Review/>
             <Footer/>
-            {/* <Cart/> */}
-            {/* <Spinner/> */}
-
-        </div>
+        </Suspense>
     );
 };
 

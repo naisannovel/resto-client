@@ -41,6 +41,7 @@
                 font-size: 1.6rem;
                 color: $tertiary-color;
                 text-decoration: none;
+                cursor: pointer;
 
                 &:not(:last-child) {
                     margin-right: 1rem;

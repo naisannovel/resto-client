@@ -2,6 +2,7 @@ import React from "react";
 import { Form, FormGroup } from "reactstrap";
 import { useForm } from 'react-hook-form';
 import Navbar from '../home/Navbar';
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
 
@@ -43,7 +44,7 @@ const SignUp = () => {
             <button className="primary__btn mt-5">SIGN UP</button>
           </Form>
           <p>
-            have an account? <a href='/login'>Log In</a>
+            have an account? <Link to='/login'>Log In</Link>
           </p>
         </div>
       </div>
