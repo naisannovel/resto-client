@@ -43,7 +43,7 @@ const Review = () => {
 
     const swiperSlide = reviewData.map(item =>(
         <SwiperSlide>
-            <div class="review__slide__container">
+            <div data-aos="fade-up" class="review__slide__container">
                 <div class="review__user__info__container">
                     <div class="review__user__info">
                         <img src={item.image} alt="customer-img"/>

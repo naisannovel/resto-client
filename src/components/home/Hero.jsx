@@ -34,13 +34,13 @@ const Hero = () => {
       <SwiperSlide>
         <div className="container">
           <div className="row">
-            <div className="col-md-6 order-md-1 order-2 hero__content__container">
+            <div data-aos="fade-right" className="col-md-6 order-md-1 order-2 hero__content__container">
               <h4> {item.subHeader} </h4>
               <h1> { item.header } </h1>
               <p> { item.paragraph } </p>
               <button className='primary__btn'>Order Now</button>
             </div>
-            <div className="col-md-6 order-md-2 order-1 hero__slider__img__container">
+            <div data-aos="fade-left" className="col-md-6 order-md-2 order-1 hero__slider__img__container">
                 <img src={item.image} className='hero__slider__img' alt="slider" />
             </div>
           </div>
