@@ -23,13 +23,13 @@ const DishesCard = () => {
           alt="Card image cap"
         />
         <CardBody>
-        <div className="dishes__card__review__container">
+        {/* <div className="dishes__card__review__container">
           <FontAwesomeIcon icon={faStar} />
           <FontAwesomeIcon icon={faStar} />
           <FontAwesomeIcon icon={faStar} />
           <FontAwesomeIcon icon={faStar} />
           <FontAwesomeIcon icon={faStar} />
-        </div>
+        </div> */}
           <CardTitle tag="h5">Card title</CardTitle>
           <CardText className='dishes__card__paragraph'>
             Some quick example text to build on the card title and make up the

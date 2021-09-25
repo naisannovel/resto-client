@@ -7,10 +7,9 @@ const Footer = () => {
             <div className="footer__content__container">
                 <h3>locations</h3>
                 <a href="#">Bangladesh</a>
+                <a href="#">USA</a>
                 <a href="#">China</a>
                 <a href="#">russia</a>
-                <a href="#">USA</a>
-                <a href="#">France</a>
             </div>
             <div className="footer__content__container">
                 <h3>quick links</h3>
@@ -22,7 +21,6 @@ const Footer = () => {
             <div className="footer__content__container">
                 <h3>contact info</h3>
                 <a href="#">+123-456-7890</a>
-                <a href="#">+111-222-3333</a>
                 <a href="#">naisannovel@gmail.com</a>
                 <a href="#">naisan@yahoo.com</a>
                 <a href="#">Dhaka, Bangladesh - 1216</a>
