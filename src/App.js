@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import Aos from "aos";
 import 'aos/dist/aos.css';
+import { auth } from './store/user';
 const store = configureStore();
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
     });
 }, []);
 
-  console.log(store.getState());
+  console.log(store.dispatch(auth()));
 
   return (
     <Provider store={store}>

@@ -26,3 +26,7 @@ export default slice.reducer;
 
 const { authLoading, userAuth, userAuthFailed } = slice.actions;
 
+export const auth = () => dispatch =>{
+    dispatch(authLoading(true))
+    setTimeout(()=>dispatch(authLoading(false)),2000)
+}
