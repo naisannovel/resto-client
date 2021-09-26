@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
+import Navbar from './Navbar';
 
 const Cart = () => {
   const cartItem = (
@@ -41,6 +42,8 @@ const Cart = () => {
   );
 
   return (
+    <>
+      <Navbar/>
     <div className="cart__item__main__container container-fluid">
       <div className="cart__item__container">
         <div className="cart__item__details">
@@ -97,6 +100,7 @@ const Cart = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

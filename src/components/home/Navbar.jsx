@@ -17,7 +17,7 @@ const [toggle,setToggle] = useState(false);
           <span>Resto.</span>
         </div>
         <div className='navbar__nav' style={{top: !toggle ? '':'100%'}}>
-                <Link to='home' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Home</Link>
+                <Link to='home' onClick={()=> history.push('/')} smooth={true} duration={300} exact='true' offset={-65} spy={true}>Home</Link>
                 <Link to='dish' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Dishes</Link>
                 <Link to='about' smooth={true} duration={300} exact='true' offset={-65} spy={true}>About</Link>
                 <Link to='review' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Review</Link>
@@ -26,7 +26,7 @@ const [toggle,setToggle] = useState(false);
         </div>
         <div className="navbar__icon">
             {/* <div className='navbar-icon-hover'><FontAwesomeIcon icon={faHeart} /></div> */}
-            <div className='navbar__cart__icon navbar-icon-hover'>
+            <div className='navbar__cart__icon navbar-icon-hover' onClick={()=> history.push('/cart')}>
                 <FontAwesomeIcon icon={faShoppingCart} />
                 <span className='navbar__cart__count__container'>5</span>
             </div>
