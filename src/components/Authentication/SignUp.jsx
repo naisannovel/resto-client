@@ -12,7 +12,7 @@ const SignUp = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   
   const onSubmit = data => {
-    dispatch(auth(data));
+    dispatch(auth('/signup',data));
     reset()
   };
 

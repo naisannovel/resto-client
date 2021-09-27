@@ -16,6 +16,7 @@ const slice = createSlice({
         userAuth: (user, action) =>{
             user.token = action.payload.token;
             user.user = action.payload.data;
+            user.authFailed = null;
             user.loading = false;
         },
         userAuthFailed: (user, action) =>{
@@ -31,9 +32,9 @@ export default slice.reducer;
 
 const { authLoading, userAuth, userAuthFailed } = slice.actions;
 
-export const auth = user =>{
+export const auth = (url,user) =>{
     return apiCallBegan({
-        url: '/signup',
+        url: url,
         method: 'post',
         data: user,
         onStart: authLoading.type,

@@ -3,11 +3,16 @@ import { Form, FormGroup } from "reactstrap";
 import { useForm } from 'react-hook-form';
 import Navbar from '../home/Navbar';
 import { Link } from "react-router-dom";
+import { auth } from "../../store/user";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
-
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const dispatch = useDispatch();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const onSubmit = data => {
+    dispatch(auth('/login',data));
+    reset();
+  };
 
   let loginPage = 
   <div className="container row login__container m-auto">
