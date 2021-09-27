@@ -16,7 +16,7 @@ function App() {
     });
 }, []);
 
-  console.log(store.dispatch(auth()));
+store.dispatch(auth({name:'naisan',email:'h2@mail.com',password:'11111'}));
 
   return (
     <Provider store={store}>

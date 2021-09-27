@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { apiCallBegan } from "./api/apiActionTypes";
 
 const slice = createSlice({
     name: 'user',
@@ -14,10 +15,12 @@ const slice = createSlice({
         },
         userAuth: (user, action) =>{
             user.token = action.payload.token;
-            user.user = action.payload.user;
+            user.user = action.payload.data;
+            user.loading = false;
         },
         userAuthFailed: (user, action) =>{
             user.authFailed = action.payload
+            user.loading = false;
         }
     }
 })
@@ -26,7 +29,13 @@ export default slice.reducer;
 
 const { authLoading, userAuth, userAuthFailed } = slice.actions;
 
-export const auth = () => dispatch =>{
-    dispatch(authLoading(true))
-    setTimeout(()=>dispatch(authLoading(false)),2000)
+export const auth = user =>{
+    return apiCallBegan({
+        url: '/signup',
+        method: 'post',
+        data: user,
+        onStart: authLoading.type,
+        onSuccess: userAuth.type,
+        onError: userAuthFailed.type
+    })
 }
