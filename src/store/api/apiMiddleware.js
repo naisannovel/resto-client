@@ -21,7 +21,7 @@ const apiMiddleware = ({dispatch}) => next => async (action) =>{
 
         } catch(error) { 
             
-            dispatch({ type: onError, payload: error.message });
+            dispatch({ type: onError, payload: error.response.data });
 
          };
 }
