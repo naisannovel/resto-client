@@ -24,13 +24,19 @@ const slice = createSlice({
             user.user = {};
             user.authFailed = action.payload
             user.loading = false;
+        },
+        userLogout: (user,action) =>{
+            user.token = null;
+            user.user = {};
+            user.loading = false;
+            user.authFailed = null;
         }
     }
 })
 
 export default slice.reducer;
 
-const { authLoading, userAuth, userAuthFailed } = slice.actions;
+const { authLoading, userAuth, userAuthFailed, userLogout } = slice.actions;
 
 export const auth = (url,user) =>{
     return apiCallBegan({
@@ -41,4 +47,11 @@ export const auth = (url,user) =>{
         onSuccess: userAuth.type,
         onError: userAuthFailed.type
     })
+}
+
+export const logOut = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expirationTime');
+    localStorage.removeItem('_id');
+    return userLogout();
 }

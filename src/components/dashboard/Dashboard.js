@@ -3,8 +3,9 @@ import { Navbar, NavbarText } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList, faPlusSquare, faThList, faSignOutAlt, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { Link, Route, useRouteMatch, useHistory } from "react-router-dom";
-import { logOut } from '../utilities/authUtilities';
+import { logOut } from '../../store/user';
 import Spinner from '../utilities/Spinner';
+import { useDispatch } from "react-redux";
 
 const OrderList = lazy(()=> import('./OrderList'));
 const AddDish = lazy(()=> import('./AddDish'));
@@ -13,6 +14,7 @@ const ManageDish = lazy(()=> import('./ManageDish'));
 
 const Dashboard = () => {
 
+  const dispatch = useDispatch();
   const history = useHistory();
   const { path, url } = useRouteMatch();
 
@@ -59,7 +61,7 @@ const Dashboard = () => {
         <div className="sidebar">
           <div class="sidebar__nav">
             {dashboardSidebar}
-            <Link to='/' onClick={()=>logOut()} className="sidebar__nav__last__child">
+            <Link to='/' onClick={()=>dispatch(logOut())} className="sidebar__nav__last__child">
               <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
             </Link>
           </div>

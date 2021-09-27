@@ -11,6 +11,7 @@ const Cart = lazy(()=> import('./home/Cart'));
 const Dashboard = lazy(()=> import('./dashboard/Dashboard'));
 
 const Main = () => {
+
     return (
         <Suspense fallback={<Spinner/>}>
             <Switch>
