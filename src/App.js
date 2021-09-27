@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import Aos from "aos";
 import 'aos/dist/aos.css';
-import { auth } from './store/user';
 const store = configureStore();
 
 function App() {
@@ -14,9 +13,8 @@ function App() {
     Aos.init({
         duration: 1000
     });
-}, []);
+  },[]);
 
-store.dispatch(auth({name:'naisan',email:'h2@mail.com',password:'11111'}));
 
   return (
     <Provider store={store}>

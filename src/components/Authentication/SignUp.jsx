@@ -3,12 +3,16 @@ import { Form, FormGroup } from "reactstrap";
 import { useForm } from 'react-hook-form';
 import Navbar from '../home/Navbar';
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { auth } from "../../store/user";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  
   const onSubmit = data => {
-    console.log(data);
+    dispatch(auth(data));
     reset()
   };
 

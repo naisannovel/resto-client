@@ -19,6 +19,8 @@ const slice = createSlice({
             user.loading = false;
         },
         userAuthFailed: (user, action) =>{
+            user.token = null;
+            user.user = {};
             user.authFailed = action.payload
             user.loading = false;
         }
