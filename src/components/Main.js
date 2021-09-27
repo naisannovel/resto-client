@@ -1,8 +1,10 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Spinner from './utilities/Spinner';
 import PrivateRoute from './Authentication/PrivateRoute';
 import AdminRoute from './Authentication/AdminRoute';
+import { authCheck } from '../store/user';
+import { useDispatch } from 'react-redux';
 
 const Home = lazy(()=> import('./home/Home'));
 const Login = lazy(()=> import('./Authentication/Login'));
@@ -11,6 +13,9 @@ const Cart = lazy(()=> import('./home/Cart'));
 const Dashboard = lazy(()=> import('./dashboard/Dashboard'));
 
 const Main = () => {
+    const dispatch = useDispatch();
+
+    useEffect(()=>{ dispatch(authCheck()) },[])
 
     return (
         <Suspense fallback={<Spinner/>}>

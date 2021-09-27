@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./api/apiActionTypes";
+import jwt_decode from 'jwt-decode';
+import _ from 'lodash';
 
 const slice = createSlice({
     name: 'user',
@@ -54,4 +56,22 @@ export const logOut = () => {
     localStorage.removeItem('expirationTime');
     localStorage.removeItem('_id');
     return userLogout();
+}
+
+export const authCheck = () =>{
+    const token = localStorage.getItem('token');
+    if(!token){
+        return logOut();
+    }else{
+        const expirationTime = new Date(localStorage.getItem('expirationTime'));
+        if(expirationTime <= new Date()){
+            return logOut();
+        }else{
+            const jwt = JSON.parse(localStorage.getItem('token'));
+            const decoded = jwt_decode(jwt);
+            const data = _.pick(decoded,["_id","name","email"]);
+            console.log('hahahahahahha');
+            return userAuth({ data, token: jwt });
+        }
+    }
 }
