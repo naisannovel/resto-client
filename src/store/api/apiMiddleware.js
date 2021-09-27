@@ -1,21 +1,23 @@
 import axios from 'axios';
 import { apiCallBegan } from './apiActionTypes';
 import jwt_decode from 'jwt-decode';
+import { API } from '../baseURL';
 
 const apiMiddleware = ({dispatch}) => next => async (action) =>{
     
     if(action.type !== apiCallBegan.type) return next(action);
-    const { url, method, data, onStart, onSuccess, onError } = action.payload;
+    const { url, method, data, onStart, onSuccess, onError, headers } = action.payload;
     
     dispatch({ type: onStart, payload: true });
     next(action);
 
     try{
         const response = await axios.request({
-            baseURL: 'http://localhost:4001/api',
+            baseURL: API,
             url,
             method,
-            data
+            data,
+            headers,
         })
 
         if(response.data.token && response.data.data.email){
