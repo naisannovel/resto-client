@@ -2,10 +2,17 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 5rem;
+    @include respond(tablet){
+        flex-direction: column;
+    }
 
     & .footer__content__container {
         display: flex;
         flex-direction: column;
+        @include respond(tablet){
+            margin-top: 2.5rem;
+            margin-left: 5rem;
+        }
 
         & h3 {
             font-size: 2.2rem;
