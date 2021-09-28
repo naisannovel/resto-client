@@ -3,7 +3,7 @@ import { apiCallBegan } from "./api/apiActionTypes";
 import jwt_decode from 'jwt-decode';
 import _ from 'lodash';
 
-const slice = createSlice({
+const userSlice = createSlice({
     name: 'user',
     initialState: {
         token: null,
@@ -36,9 +36,9 @@ const slice = createSlice({
     }
 })
 
-export default slice.reducer;
+export default userSlice.reducer;
 
-const { authLoading, userAuth, userAuthFailed, userLogout } = slice.actions;
+const { authLoading, userAuth, userAuthFailed, userLogout } = userSlice.actions;
 
 export const auth = (url,user) =>{
     return apiCallBegan({
@@ -70,7 +70,6 @@ export const authCheck = () =>{
             const jwt = JSON.parse(localStorage.getItem('token'));
             const decoded = jwt_decode(jwt);
             const data = _.pick(decoded,["_id","name","email"]);
-            console.log('hahahahahahha');
             return userAuth({ data, token: jwt });
         }
     }

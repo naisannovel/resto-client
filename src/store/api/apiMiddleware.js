@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 import { API } from '../baseURL';
 
 const apiMiddleware = ({dispatch}) => next => async (action) =>{
-    
+
     if(action.type !== apiCallBegan.type) return next(action);
     const { url, method, data, onStart, onSuccess, onError, headers } = action.payload;
     
@@ -19,7 +19,7 @@ const apiMiddleware = ({dispatch}) => next => async (action) =>{
             data,
             headers,
         })
-
+        
         if(response.data.token && response.data.data.email){
             localStorage.setItem('token',JSON.stringify(response.data.token));
             localStorage.setItem('_id',response.data.data._id);

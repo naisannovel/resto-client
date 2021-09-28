@@ -15,7 +15,7 @@ const Dashboard = lazy(()=> import('./dashboard/Dashboard'));
 const Main = () => {
     const dispatch = useDispatch();
 
-    useEffect(()=>{ dispatch(authCheck()) },[])
+    // useEffect(()=>{ dispatch(authCheck()) },[])
 
     return (
         <Suspense fallback={<Spinner/>}>
