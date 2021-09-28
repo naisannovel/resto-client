@@ -12,7 +12,7 @@ import {
 const DishesCard = ({ image,name,about,price }) => {
 
   return (
-    <div className='col-4'>
+    <div className='col-md-4'>
       <Card className='dishes__card__container'>
         {/* <div className="navbar-icon-hover dishes__card__eye__icon">
           <FontAwesomeIcon icon={faEye} />
