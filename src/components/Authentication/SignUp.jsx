@@ -5,13 +5,18 @@ import Navbar from '../home/Navbar';
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { auth } from "../../store/user";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
+import { isAuthenticated } from "../utilities/authUtilities";
 
 const SignUp = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   
+  const redirectUser = () => {
+    if (isAuthenticated()) return <Redirect to="/" />
+}
+
   const onSubmit = data => {
     dispatch(auth('/signup',data,()=> history.push('/')));
     reset()
@@ -60,6 +65,7 @@ const SignUp = () => {
 
   return (
     <div>
+      { redirectUser() }
         <Navbar/>
       { signupPage }
       

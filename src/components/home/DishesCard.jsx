@@ -9,9 +9,10 @@ import {
   CardTitle,
 } from "reactstrap";
 
-const DishesCard = () => {
+const DishesCard = ({ image,name,about,price }) => {
+
   return (
-    <div>
+    <div className='col-4'>
       <Card className='dishes__card__container'>
         {/* <div className="navbar-icon-hover dishes__card__eye__icon">
           <FontAwesomeIcon icon={faEye} />
@@ -19,8 +20,8 @@ const DishesCard = () => {
         <CardImg
           top
           width="100%"
-          src="/assets/images/dish-7.jpg"
-          alt="Card image cap"
+          src={ `data:image/png;base64,${image}` }
+          alt="dish"
         />
         <CardBody>
         {/* <div className="dishes__card__review__container">
@@ -30,14 +31,11 @@ const DishesCard = () => {
           <FontAwesomeIcon icon={faStar} />
           <FontAwesomeIcon icon={faStar} />
         </div> */}
-          <CardTitle tag="h5">Card title</CardTitle>
-          <CardText className='dishes__card__paragraph'>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </CardText>
+          <CardTitle tag="h5"> { name } </CardTitle>
+          <CardText className='dishes__card__paragraph'> { about } </CardText>
           <div className="dishes__card__price__container">
             <button className="primary__btn">Add To Cart</button>
-            <h5>$15.99</h5>
+            <h5>$ { price } </h5>
           </div>
         </CardBody>
       </Card> 

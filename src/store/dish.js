@@ -28,6 +28,12 @@ const dishSlice = createSlice({
             dish.dishErrMsg = action.payload;
             dish.loading = false;
         },
+        dishAdd: (dish, action) =>{
+            dish.dish.push(action.payload.result);
+            dish.loading = false;
+            dish.dishSuccessMsg = action.payload.msg;
+            dish.dishErrMsg = null;
+        },
         dishPriceUpdate: (dish, action) =>{
             const findIndex = dish.dish.findIndex(item => item._id === action.payload._id);
             dish.dish[findIndex] = action.payload
@@ -45,7 +51,7 @@ const dishSlice = createSlice({
     }
 })
 
-export const { loading, dishList, dishSuccessMsg, dishErrMsg, dishPriceUpdate, dishDelete } = dishSlice.actions;
+export const { loading, dishList, dishSuccessMsg, dishErrMsg, dishAdd, dishPriceUpdate, dishDelete } = dishSlice.actions;
 export default dishSlice.reducer;
 
 export const fetchDish = () =>{
@@ -53,6 +59,21 @@ export const fetchDish = () =>{
         url: '/dish',
         onStart: loading.type,
         onSuccess: dishList.type,
+        onError: dishErrMsg.type
+    })
+}
+
+export const dishAdded = data =>{
+    return apiCallBegan({
+        url: '/dish',
+        method: 'post',
+        data: data,
+        headers: {
+            "Content-Type": "multipart/form-data",
+            "Authorization": `Bearer ${JSON.parse(localStorage.getItem('token'))}`
+        },
+        onStart: loading.type,
+        onSuccess: dishAdd.type,
         onError: dishErrMsg.type
     })
 }

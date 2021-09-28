@@ -1,14 +1,22 @@
 import React from "react";
 import { Form, FormGroup, Label } from "reactstrap";
 import { useForm } from "react-hook-form";
+import { dishAdded } from '../../store/dish';
+import { useDispatch } from "react-redux";
 
 
 const AddDish = () => {
+  const dispatch = useDispatch();
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = data => {
-    console.log(data);
+    const formData = new FormData();
+    formData.append('name',data.name);
+    formData.append('price',data.price);
+    formData.append('about',data.about);
+    formData.append('image',data.image[0])
+    dispatch(dishAdded(formData))
     reset()
   };
 
