@@ -1,13 +1,14 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router';
+import { isAuthenticated, userInfo } from '../utilities/authUtilities';
 
 const AdminRoute = ({ children, ...rest }) => {
-//   const { role } = userInfo();
+  const { role } = isAuthenticated() ? userInfo() : "";
     return (
         <Route
       {...rest}
       render={({ location }) =>
-      true ? (
+      isAuthenticated() && role === 'admin' ? (
           children
         ) : (
           <Redirect

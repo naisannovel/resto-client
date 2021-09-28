@@ -5,12 +5,15 @@ import Navbar from '../home/Navbar';
 import { Link } from "react-router-dom";
 import { auth } from "../../store/user";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 const Login = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
   const onSubmit = data => {
-    dispatch(auth('/login',data));
+    dispatch(auth('/login',data,()=>history.push('/')));
     reset();
   };
 

@@ -6,7 +6,7 @@ import { API } from '../baseURL';
 const apiMiddleware = ({dispatch}) => next => async (action) =>{
 
     if(action.type !== apiCallBegan.type) return next(action);
-    const { url, method, data, onStart, onSuccess, onError, headers } = action.payload;
+    const { url, method, data, onStart, onSuccess, onError, headers, onSuccessCB } = action.payload;
     
     dispatch({ type: onStart, payload: true });
     next(action);
@@ -25,6 +25,10 @@ const apiMiddleware = ({dispatch}) => next => async (action) =>{
             const { exp } = jwt_decode(response.data.token);
             const expirationTime = new Date(exp * 1000);
             localStorage.setItem('expirationTime',expirationTime);
+        }
+
+        if(onSuccessCB){
+            onSuccessCB()
         }
 
         dispatch({ type: onSuccess, payload: response.data })

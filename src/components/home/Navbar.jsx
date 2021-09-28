@@ -3,9 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faShoppingCart, faTimes, faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router";
 import { Link, animateScroll } from "react-scroll";
+import { isAuthenticated, userInfo } from "../utilities/authUtilities";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../store/user";
 
 const Navbar = () => {
-const history = useHistory()
+  const { role } = isAuthenticated() ? userInfo() : "";
+  const history = useHistory();
+  const dispatch = useDispatch();
 
 const [toggle,setToggle] = useState(false);
 
@@ -21,8 +26,15 @@ const [toggle,setToggle] = useState(false);
                 <Link to='dish' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Dishes</Link>
                 <Link to='about' smooth={true} duration={300} exact='true' offset={-65} spy={true}>About</Link>
                 <Link to='review' smooth={true} duration={300} exact='true' offset={-65} spy={true}>Review</Link>
-                <Link onClick={()=>history.push('/admin/dashboard')} >Dashboard</Link>
-                <button onClick={()=> history.push('/login')} className='primary__btn my-md-0 my-4'>Log In</button>
+                {
+                  isAuthenticated() && role === 'admin' ? 
+                  <Link onClick={()=>history.push('/admin/dashboard')} >Dashboard</Link> : ''
+                }
+                {
+                  isAuthenticated() ?
+                  <button onClick={()=>{dispatch(logOut());history.push('/')}} className='primary__btn my-md-0 my-4'>Log Out</button>:
+                  <button onClick={()=> history.push('/login')} className='primary__btn my-md-0 my-4'>Log In</button>
+                }
         </div>
         <div className="navbar__icon">
             {/* <div className='navbar-icon-hover'><FontAwesomeIcon icon={faHeart} /></div> */}

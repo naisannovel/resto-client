@@ -40,14 +40,15 @@ export default userSlice.reducer;
 
 const { authLoading, userAuth, userAuthFailed, userLogout } = userSlice.actions;
 
-export const auth = (url,user) =>{
+export const auth = (url,user,cb) =>{
     return apiCallBegan({
         url: url,
         method: 'post',
         data: user,
         onStart: authLoading.type,
         onSuccess: userAuth.type,
-        onError: userAuthFailed.type
+        onError: userAuthFailed.type,
+        onSuccessCB: cb
     })
 }
 
