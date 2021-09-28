@@ -6,7 +6,7 @@ import DishesCard from './DishesCard';
 const Dishes = () => {
     const dispatch = useDispatch();
 
-    useEffect(()=>{ dispatch(dish()) },[])
+    useEffect(()=> dispatch(dish()),[])
 
     return (
         <div className='container-fluid popular__dishes__main__container' id='dish'>
