@@ -7,7 +7,7 @@ import { logOut } from '../../store/user';
 import Spinner from '../utilities/Spinner';
 import { useDispatch } from "react-redux";
 
-const OrderList = lazy(()=> import('./OrderList'));
+const CartList = lazy(()=> import('./CartList'));
 const AddDish = lazy(()=> import('./AddDish'));
 const ManageDish = lazy(()=> import('./ManageDish'));
 
@@ -34,10 +34,10 @@ const Dashboard = () => {
 
     const dashboardRouting = (
         <Suspense fallback={<Spinner/>}>
-            <Route path={`${path}/order-list`} exact component={OrderList} />
+            <Route path={`${path}/order-list`} exact component={CartList} />
             <Route path={`${path}/add-dish`} exact component={AddDish} />
             <Route path={`${path}/manage-dish`} exact component={ManageDish} />
-            <Route path={`${path}`} exact component={OrderList} />
+            <Route path={`${path}`} exact component={CartList} />
         </Suspense>
     );
 
