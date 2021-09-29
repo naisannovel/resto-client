@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import Navbar from './Navbar';
 import { deleteCartItem, increaseItemQuantity, decreaseItemQuantity } from '../../store/cart';
+import StripePaymentGateway from "../paymentGateway/StripePaymentGateway";
 
 const Cart = () => {
 
@@ -106,7 +107,9 @@ const Cart = () => {
             <span>$ { totalCheckoutPrice.toFixed(2) }</span>
           </div>
           <div style={{ textAlign: "center", marginTop: "15px" }}>
-            <button className="primary__btn">Pay With Card</button>
+            {
+              totalCheckoutPrice ? <StripePaymentGateway price={totalCheckoutPrice.toFixed(2)} /> : ''
+            }
           </div>
         </div>
       </div>
