@@ -5,11 +5,13 @@ import Navbar from '../home/Navbar';
 import { Link } from "react-router-dom";
 import { auth } from "../../store/user";
 import { useDispatch } from "react-redux";
-import { Redirect, useHistory } from "react-router";
+import { Redirect, useHistory, useLocation } from "react-router";
 import { isAuthenticated } from "../utilities/authUtilities";
 
 const Login = () => {
   const history = useHistory();
+  const location = useLocation()
+  let { from } = location.state || { from: { pathname: '/' } };
   const dispatch = useDispatch();
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -18,7 +20,7 @@ const Login = () => {
 }
 
   const onSubmit = data => {
-    dispatch(auth('/login',data,()=>history.push('/')));
+    dispatch(auth('/login',data,()=>history.push(from)));
     reset();
   };
 

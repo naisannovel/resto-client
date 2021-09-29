@@ -5,12 +5,14 @@ import Navbar from '../home/Navbar';
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { auth } from "../../store/user";
-import { Redirect, useHistory } from "react-router";
+import { Redirect, useHistory, useLocation } from "react-router";
 import { isAuthenticated } from "../utilities/authUtilities";
 
 const SignUp = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation()
+  let { from } = location.state || { from: { pathname: '/' } };
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   
   const redirectUser = () => {
@@ -18,7 +20,7 @@ const SignUp = () => {
 }
 
   const onSubmit = data => {
-    dispatch(auth('/signup',data,()=> history.push('/')));
+    dispatch(auth('/signup',data,()=> history.push(from)));
     reset()
   };
 
