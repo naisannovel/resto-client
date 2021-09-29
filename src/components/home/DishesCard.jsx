@@ -1,5 +1,5 @@
 import React from "react";
-import { faEye, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faEye, faShoppingCart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { addToCart } from "../../store/cart";
 import {
@@ -46,8 +46,12 @@ const DishesCard = ({ _id,image,name,about,price }) => {
           <div className="dishes__card__price__container">
             {
               inCart ?
-              <button className="primary__btn" style={{background:'green'}}>Added</button>:
-              <button onClick={()=>dispatch(addToCart({_id,name,image,about,price,quantity:1}))} className="primary__btn">Add To Cart</button>
+              <button className="primary__btn" style={{background:'green'}}>
+                <FontAwesomeIcon icon={faCheck} />{' '}
+                Added</button>:
+              <button onClick={()=>dispatch(addToCart({_id,name,image,about,price,quantity:1}))} className="primary__btn">
+                <FontAwesomeIcon icon={faShoppingCart} />{' '}
+                Add To Cart</button>
             }
             <h5>$ { price } </h5>
           </div>
