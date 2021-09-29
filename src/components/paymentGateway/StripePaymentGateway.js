@@ -1,9 +1,18 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { API } from "../../store/baseURL";
+import _ from 'lodash';
+import { saveCartItem } from "../../store/cart";
 
 
 const StripePaymentGateway = ({price}) => {
+    const dispatch = useDispatch();
+    const cart = useSelector(state => {
+        return {
+            cart: state.cart.cart
+        }
+    })
 
   const makePayment = token => {
     const body = { token, price };
@@ -17,11 +26,19 @@ const StripePaymentGateway = ({price}) => {
       body: JSON.stringify(body)
     })
       .then(response => {
-          console.log(response);
-        // const { status,statusText } = response;
-        // if(status === 200 && statusText === "OK"){
-        //   getService(id)
-        // }
+        const { status,statusText } = response;
+        if(status === 200 && statusText === "OK"){
+
+        const address = _.pick(token.card,["address_line1","address_city","address_zip","address_country"])
+        
+        const myCart = [];
+        cart?.cart?.map(item => {
+            const cartItem = { cartItem: item?._id, quantity: item?.quantity }
+            myCart.push(cartItem);
+        })
+          const data = {address,myCart}
+          dispatch(saveCartItem(data));
+        }
       })
       .catch(error => console.log(error));
   };

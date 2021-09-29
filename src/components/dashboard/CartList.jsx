@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Table } from "reactstrap";
+import { getCartItem } from "../../store/cart";
 
 const OrderList = () => {
+
+  const dispatch = useDispatch();
+  useEffect(()=>dispatch(getCartItem()),[])
 
   let orderListItem = 
         <tr style={{ height: "50px", lineHeight: "50px" }}>
