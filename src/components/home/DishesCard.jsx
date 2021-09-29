@@ -11,7 +11,7 @@ import {
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 
-const DishesCard = ({ _id,image,name,about,price }) => {
+  const DishesCard = ({ _id,image,name,about,price }) => {
   const cart = useSelector(state =>{
     return {
       cart: state.cart.cart

@@ -1,23 +1,33 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import Navbar from './Navbar';
+import { deleteCartItem, increaseItemQuantity, decreaseItemQuantity } from '../../store/cart';
 
 const Cart = () => {
-  const cartItem = (
+
+  const cart = useSelector(state =>{
+    return {
+      cart: state.cart.cart
+    }
+  })
+  const dispatch = useDispatch();
+
+  const cartItem = cart?.cart?.map(item => (
     <div className="cart__item mb-5">
       <div className="d-flex align-items-center" style={{ width: "50%" }}>
-        <img src="assets/images/dish-7.jpg" alt="CartItem" />
+        <img src={ `data:image/png;base64,${item.image}` } alt="CartItem" />
         <div style={{ marginLeft: "20px" }}>
-          <h5>Tasty Food</h5>
-          <h4>$24</h4>
-          <h5 style={{ color: "red" }}>remove</h5>
+          <h5>{ item.name }</h5>
+          <h4>${ item.price }</h4>
+          <h5 onClick={()=>dispatch(deleteCartItem(item._id))} style={{ color: "red",cursor:'pointer' }}>remove</h5>
         </div>
       </div>
       <div
         className="d-flex justify-content-center align-items-center"
         style={{ width: "25%" }}
       >
-        <span style={{ fontSize: "25px", cursor: "pointer" }}>-</span>
+        <span onClick={()=> dispatch(decreaseItemQuantity(item._id))} style={{ fontSize: "25px", cursor: "pointer" }}>-</span>
         <span
           className="d-flex justify-content-center align-items-center mx-2"
           style={{
@@ -28,18 +38,18 @@ const Cart = () => {
             fontSize: "14px",
           }}
         >
-          2
+          { item.quantity }
         </span>
-        <span style={{ fontSize: "25px", cursor: "pointer" }}>+</span>
+        <span onClick={()=> dispatch(increaseItemQuantity(item._id))} style={{ fontSize: "25px", cursor: "pointer" }}>+</span>
       </div>
       <div
         className="d-flex justify-content-center align-items-center"
         style={{ width: "25%" }}
       >
-        <h5>$254.99</h5>
+        <h5>${ (item.price * item.quantity).toFixed(2) }</h5>
       </div>
     </div>
-  );
+  ));
 
   return (
     <>
@@ -54,11 +64,6 @@ const Cart = () => {
             <div style={{ width: "25%", textAlign: "center" }}>Quantity</div>
             <div style={{ width: "25%", textAlign: "center" }}>Total Price</div>
           </div>
-          {cartItem}
-          {cartItem}
-          {cartItem}
-          {cartItem}
-          {cartItem}
           {cartItem}
         </div>
       </div>
