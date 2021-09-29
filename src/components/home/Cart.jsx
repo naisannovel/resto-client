@@ -13,6 +13,12 @@ const Cart = () => {
   })
   const dispatch = useDispatch();
 
+  let totalCheckoutPrice = 0;
+  cart?.cart?.map(item =>(
+    totalCheckoutPrice += item.price * item.quantity
+  ))
+  
+
   const cartItem = cart?.cart?.map(item => (
     <div className="cart__item mb-5">
       <div className="d-flex align-items-center" style={{ width: "50%" }}>
@@ -97,7 +103,7 @@ const Cart = () => {
           </Form>
           <div className="cart__total__price">
             <span>Total Price</span>
-            <span>$245</span>
+            <span>$ { totalCheckoutPrice.toFixed(2) }</span>
           </div>
           <div style={{ textAlign: "center", marginTop: "15px" }}>
             <button className="primary__btn">Pay With Card</button>
