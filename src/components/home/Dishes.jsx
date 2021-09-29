@@ -14,6 +14,7 @@ const Dishes = () => {
     console.log(dishes?.dish[0]?.image);
     const dishesItem = dishes?.dish?.map(item =>(
         <DishesCard 
+        _id={item._id}
         name={item.name}
         price={item.price}
         about={item.about}

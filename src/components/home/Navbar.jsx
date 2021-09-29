@@ -6,11 +6,17 @@ import { Link, animateScroll } from "react-scroll";
 import { isAuthenticated, userInfo } from "../utilities/authUtilities";
 import { useDispatch } from "react-redux";
 import { logOut } from "../../store/user";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const { role } = isAuthenticated() ? userInfo() : "";
   const history = useHistory();
   const dispatch = useDispatch();
+  const cart = useSelector(state =>{
+    return {
+      cart: state.cart.cart
+    }
+  })
 
 const [toggle,setToggle] = useState(false);
 
@@ -40,7 +46,7 @@ const [toggle,setToggle] = useState(false);
             {/* <div className='navbar-icon-hover'><FontAwesomeIcon icon={faHeart} /></div> */}
             <div className='navbar__cart__icon navbar-icon-hover' onClick={()=> history.push('/cart')}>
                 <FontAwesomeIcon icon={faShoppingCart} />
-                <span className='navbar__cart__count__container'>5</span>
+                <span className='navbar__cart__count__container'> { cart.cart.length } </span>
             </div>
             { !toggle ?
             <div className='navbar-icon-hover navbar__bar__icon' onClick={()=>setToggle(true)}><FontAwesomeIcon icon={faBars} /></div>:
