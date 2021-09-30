@@ -23,7 +23,7 @@ const OrderList = () => {
           <h3>  { item.user.email } </h3>
         </div>
         <div>
-          <h5> Village: { item.address.address_line1 } </h5>
+          <h5> area: { item.address.address_line1 } </h5>
           <h5> City: { item.address.address_city } </h5>
           <h5> Country: { item.address.address_country } </h5>
           <h5> Zip: { item.address.address_zip } </h5>

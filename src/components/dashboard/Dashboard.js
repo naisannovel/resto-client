@@ -5,7 +5,7 @@ import { faList, faPlusSquare, faThList, faSignOutAlt, faUtensils } from "@forta
 import { Link, Route, useRouteMatch, useHistory } from "react-router-dom";
 import { logOut } from '../../store/user';
 import Spinner from '../utilities/Spinner';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CartList = lazy(()=> import('./CartList'));
 const AddDish = lazy(()=> import('./AddDish'));
@@ -13,6 +13,11 @@ const ManageDish = lazy(()=> import('./ManageDish'));
 
 
 const Dashboard = () => {
+
+  const userInfo = useSelector(state =>{
+    return {
+      name: state?.user?.user?.name
+    }});
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -53,7 +58,7 @@ const Dashboard = () => {
             className="mr-auto"
             style={{ fontSize: "20px", textTransform: "capitalize" }}
           >
-            Naisan novel
+            { userInfo.name }
           </NavbarText>
         </Navbar>
       </div>
