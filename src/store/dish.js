@@ -15,14 +15,10 @@ const dishSlice = createSlice({
             dish.loading = action.payload;
         },
         dishList: (dish, action) =>{
-            dish.dish = action.payload;
+            dish.dish.push(...action.payload);
             dish.loading = false;
             dish.dishSuccessMsg = null;
             dish.dishErrMsg = null;
-        },
-        loadMoreDish: (dish, action) =>{
-            dish.dish.push(...action.payload);
-            dish.loading = false;
         },
         dishSuccessMsg: (dish, action) =>{
             dish.dishSuccessMsg = action.payload;
@@ -55,23 +51,15 @@ const dishSlice = createSlice({
     }
 })
 
-export const { loading, dishList, dishSuccessMsg, dishErrMsg, dishAdd, dishPriceUpdate, dishDelete, loadMoreDish } = dishSlice.actions;
+export const { loading, dishList, dishSuccessMsg, dishErrMsg, dishAdd, dishPriceUpdate, dishDelete } = dishSlice.actions;
 export default dishSlice.reducer;
 
-export const fetchDish = () =>{
-    return apiCallBegan({
-        url: `/dish?limit=6&skip=0`,
-        onStart: loading.type,
-        onSuccess: dishList.type,
-        onError: dishErrMsg.type
-    })
-}
-
-export const fetchMoreDish = (limit,skip) =>{
+export const fetchDish = (limit,skip) =>{
     return apiCallBegan({
         url: `/dish?limit=${limit}&skip=${skip}`,
         onStart: loading.type,
-        onSuccess: loadMoreDish.type,
+        onSuccess: dishList.type,
+        onError: dishErrMsg.type
     })
 }
 
