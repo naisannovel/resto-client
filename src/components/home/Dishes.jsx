@@ -6,7 +6,7 @@ import SpinnerSecondary from '../utilities/SpinnerSecondary';
 
 const Dishes = () => {
     document.title = 'Resto.'
-    const [limit,setLimit] = useState(12);
+    const [limit,setLimit] = useState(6);
     const [skip,setSkip] = useState(6);
     const dispatch = useDispatch();
     const dishes = useSelector( state => {
@@ -47,8 +47,7 @@ const Dishes = () => {
                     dishes.dish &&
                     <button 
                     onClick={()=>{
-                        setLimit(limit+6);
-                        setSkip(limit);
+                        setSkip(skip+limit);
                         dispatch(fetchMoreDish(limit,skip))
                     }}
                     className='primary__btn mt-5' 

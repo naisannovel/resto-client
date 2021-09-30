@@ -1,5 +1,5 @@
 import React from "react";
-import { faCheck, faEye, faShoppingCart, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCheck,  faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { addToCart } from "../../store/cart";
 import {
@@ -24,9 +24,6 @@ import { useDispatch, useSelector } from "react-redux";
   return (
     <div className='col-md-4'>
       <Card className='dishes__card__container'>
-        {/* <div className="navbar-icon-hover dishes__card__eye__icon">
-          <FontAwesomeIcon icon={faEye} />
-        </div> */}
         <CardImg
           top
           width="100%"
@@ -34,15 +31,8 @@ import { useDispatch, useSelector } from "react-redux";
           alt="dish"
         />
         <CardBody>
-        {/* <div className="dishes__card__review__container">
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-          <FontAwesomeIcon icon={faStar} />
-        </div> */}
-          <CardTitle tag="h5"> { name } </CardTitle>
-          <CardText className='dishes__card__paragraph'> { about } </CardText>
+          <CardTitle tag="h5" style={{textAlign:'left'}}> { name } </CardTitle>
+          <CardText className='dishes__card__paragraph' style={{textAlign:'left'}}> { about } </CardText>
           <div className="dishes__card__price__container">
             {
               inCart ?
