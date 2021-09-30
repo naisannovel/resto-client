@@ -7,6 +7,7 @@ import StripePaymentGateway from "../paymentGateway/StripePaymentGateway";
 import Spinner from '../utilities/Spinner';
 
 const Cart = () => {
+  document.title = 'Resto. - Cart'
 
   const cart = useSelector(state =>{
     return {

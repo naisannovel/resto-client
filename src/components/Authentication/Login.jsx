@@ -12,6 +12,7 @@ import Spinner from '../utilities/Spinner';
 import { Alert } from 'reactstrap';
 
 const Login = () => {
+  document.title = 'Resto. - Login'
   const history = useHistory();
   const location = useLocation();
   let { from } = location.state || { from: { pathname: '/' } };

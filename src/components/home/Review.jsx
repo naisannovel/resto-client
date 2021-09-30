@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 SwiperCore.use([Pagination]);
 
 const Review = () => {
+  document.title = 'Resto.'
 
     const reviewData = [
         {

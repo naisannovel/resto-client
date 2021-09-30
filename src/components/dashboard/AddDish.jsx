@@ -8,6 +8,7 @@ import SpinnerSecondary from '../utilities/SpinnerSecondary';
 
 
 const AddDish = () => {
+  document.title = 'Resto. - Add Dish'
   const dispatch = useDispatch();
   const dish = useSelector(state =>{
     return {

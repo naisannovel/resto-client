@@ -5,6 +5,7 @@ import { getCartItem } from "../../store/cart";
 import SpinnerSecondary from '../utilities/SpinnerSecondary';
 
 const OrderList = () => {
+  document.title = 'Resto. - Cart List'
 
   const dispatch = useDispatch();
   const cartList = useSelector(state =>{

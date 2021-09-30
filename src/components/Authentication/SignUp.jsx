@@ -10,6 +10,7 @@ import { isAuthenticated } from "../utilities/authUtilities";
 import Spinner from '../utilities/Spinner';
 
 const SignUp = () => {
+  document.title = 'Resto. - Signup'
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation()

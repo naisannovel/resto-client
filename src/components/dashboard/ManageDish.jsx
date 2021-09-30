@@ -9,6 +9,7 @@ import SpinnerSecondary from '../utilities/SpinnerSecondary';
 
 
 const ManageDish = () => {
+  document.title = 'Resto. - Manage Dish'
 
   const dispatch = useDispatch();
 

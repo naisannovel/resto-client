@@ -5,6 +5,7 @@ import DishesCard from './DishesCard';
 import SpinnerSecondary from '../utilities/SpinnerSecondary';
 
 const Dishes = () => {
+    document.title = 'Resto.'
     const [limit,setLimit] = useState(12);
     const [skip,setSkip] = useState(6);
     const dispatch = useDispatch();

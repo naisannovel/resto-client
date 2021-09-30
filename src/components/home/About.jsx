@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 const About = () => {
+  document.title = 'Resto.'
 
   return (
     <div className="container about__main__container mt-5" id='about'>
