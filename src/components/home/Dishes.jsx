@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDish } from '../../store/dish';
+import { fetchDish, fetchMoreDish } from '../../store/dish';
 import DishesCard from './DishesCard';
 
 const Dishes = () => {
@@ -41,7 +41,7 @@ const Dishes = () => {
                     onClick={()=>{
                         setLimit(limit+6);
                         setSkip(limit);
-                        dispatch(fetchDish(limit,skip))
+                        dispatch(fetchMoreDish(limit,skip))
                     }}
                     className='primary__btn mt-5' 
                     style={{background:"green"}}

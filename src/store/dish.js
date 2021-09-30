@@ -16,10 +16,14 @@ const dishSlice = createSlice({
             dish.loading = action.payload;
         },
         dishList: (dish, action) =>{
-            dish.dish.push(...action.payload);
+            dish.dish = action.payload;
             dish.loading = false;
             dish.dishSuccessMsg = null;
             dish.dishErrMsg = null;
+        },
+        loadMoreDish: (dish, action) =>{
+            dish.dish.push(...action.payload);
+            dish.loading = false;
         },
         loadAllDishes: (dish, action) =>{
             dish.allDishList = action.payload;
@@ -40,15 +44,15 @@ const dishSlice = createSlice({
             dish.dishErrMsg = null;
         },
         dishPriceUpdate: (dish, action) =>{
-            const findIndex = dish.dish.findIndex(item => item._id === action.payload._id);
-            dish.dish[findIndex] = action.payload
+            const findIndex = dish.allDishList.findIndex(item => item._id === action.payload._id);
+            dish.allDishList[findIndex] = action.payload
             dish.loading = false;
             dish.dishSuccessMsg = null;
             dish.dishErrMsg = null;
         },
         dishDelete: (dish, action) =>{
-            const filterDishes = dish.dish.filter(item => item._id !== action.payload.id);
-            dish.dish = filterDishes
+            const filterDishes = dish.allDishList.filter(item => item._id !== action.payload.id);
+            dish.allDishList = filterDishes
             dish.loading = false;
             dish.dishSuccessMsg = action.payload.msg;
             dish.dishErrMsg = null;
@@ -56,7 +60,7 @@ const dishSlice = createSlice({
     }
 })
 
-export const { loading, dishList, dishSuccessMsg, dishErrMsg, dishAdd, dishPriceUpdate, dishDelete, loadAllDishes } = dishSlice.actions;
+export const { loading, dishList, dishSuccessMsg, dishErrMsg, dishAdd, dishPriceUpdate, dishDelete, loadAllDishes, loadMoreDish } = dishSlice.actions;
 export default dishSlice.reducer;
 
 export const fetchDish = (limit,skip) =>{
@@ -65,6 +69,14 @@ export const fetchDish = (limit,skip) =>{
         onStart: loading.type,
         onSuccess: dishList.type,
         onError: dishErrMsg.type
+    })
+}
+
+export const fetchMoreDish = (limit,skip) =>{
+    return apiCallBegan({
+        url: `/dish?limit=${limit}&skip=${skip}`,
+        onStart: loading.type,
+        onSuccess: loadMoreDish.type
     })
 }
 
