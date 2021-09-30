@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDish } from '../../store/dish';
+import { fetchDish, fetchMoreDish } from '../../store/dish';
 import DishesCard from './DishesCard';
 
 const Dishes = () => {
+    const [limit,setLimit] = useState(12);
+    const [skip,setSkip] = useState(6);
     const dispatch = useDispatch();
     const dishes = useSelector( state => {
         return {
@@ -25,7 +27,7 @@ const Dishes = () => {
 
     return (
         <div data-aos="zoom-in" className='container-fluid popular__dishes__main__container' id='dish'>
-            <div className="container">
+            <div className="container" style={{textAlign:'center'}}>
                 <div className="title">
                     <p>Our Dishes</p>
                     <h3>POPULAR DISHES</h3>
@@ -33,6 +35,18 @@ const Dishes = () => {
                 <div className="row g-5">
                     { dishesItem }
                 </div>
+                {
+                    dishes.dish &&
+                    <button 
+                    onClick={()=>{
+                        setLimit(limit+6);
+                        setSkip(limit);
+                        dispatch(fetchMoreDish(limit,skip))
+                    }}
+                    className='primary__btn mt-5' 
+                    style={{background:"green"}}
+                    >Load More</button>
+                }
             </div>
         </div>
     );
