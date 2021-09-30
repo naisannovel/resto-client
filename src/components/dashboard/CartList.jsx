@@ -1,44 +1,50 @@
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Table } from "reactstrap";
 import { getCartItem } from "../../store/cart";
 
 const OrderList = () => {
 
   const dispatch = useDispatch();
+  const cartList = useSelector(state =>{
+    return {
+      cart: state?.cart?.allCartItem
+    }})
   useEffect(()=>dispatch(getCartItem()),[])
+  console.log(cartList.cart);
 
-  let orderListItem = 
-        <tr style={{ height: "50px", lineHeight: "50px" }}>
-          <td> ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff </td>
-          <td>  </td>
-          <td>  </td>
-          <td>
-            <select id="cars" name="cars" className="naisan">
-              <option value="pending">pending</option>
-              <option value="ongoing">ongoing</option>
-              <option value="done">done</option>
-            </select>
-          </td>
-        </tr>
-
+  let orderListItem = cartList?.cart?.map(item =>(
+  <div className="row border">
+    <div className="col-md-6">
+        <h3> Name: { item.user.name } </h3>
+        <h3>Email: { item.user.email } </h3>
+        <h4>Address</h4>
+        <h5> { item.address.address_line1 } </h5>
+        <h5> { item.address.address_city } </h5>
+        <h5> { item.address.address_country } </h5>
+        <h5> { item.address.address_zip } </h5>
+    </div>
+    <div className="col-md-6">
+      <ul class="list-group list-group-flush">
+          {
+            item?.myCart?.map(cartItem =>(
+                <div>
+                  <li class="list-group-item"> { cartItem.quantity } </li>
+                  <li class="list-group-item"> { cartItem.cartItem.name } </li>
+                  <li class="list-group-item"> { cartItem.cartItem.price } </li>
+                </div>
+                ))
+              }
+        </ul>
+    </div>
+  </div>
+));
 
   return (
     <div className="order__list__container">
       <h1>Order List</h1>
-      <Table striped>
-        <thead>
-          <tr>
-            <th>Dish</th>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          { orderListItem }
-        </tbody>
-      </Table>
+      <hr />
+      { orderListItem }
     </div>
   );
 };
