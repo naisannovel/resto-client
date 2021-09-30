@@ -17,7 +17,7 @@ const Dishes = () => {
     })
 
     let dishesItem = null;
-    if(!dishes.loading){
+    if(dishes?.dish?.length){
     dishesItem = dishes?.dish?.map(item =>(
                 <DishesCard 
                 _id={item._id}
@@ -52,7 +52,7 @@ const Dishes = () => {
                     }}
                     className='primary__btn mt-5' 
                     style={{background:"green"}}
-                    >{dishes.loading ? <span className="fa fa-spinner fa-pulse px-4"></span> : "Load More" }</button>
+                    >{dishes.loading ? <span className="fa fa-spinner fa-pulse fa-2x px-5"></span> : "Load More" }</button>
                 }
             </div>
         </div>
