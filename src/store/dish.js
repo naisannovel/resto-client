@@ -82,7 +82,7 @@ export const fetchMoreDish = (limit,skip) =>{
 
 export const fetchAllDish = () =>{
     return apiCallBegan({
-        url: `/dish`,
+        url: `/dish/all`,
         onStart: loading.type,
         onSuccess: loadAllDishes.type,
     })
