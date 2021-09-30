@@ -11,27 +11,27 @@ const OrderList = () => {
       cart: state?.cart?.allCartItem
     }})
   useEffect(()=>dispatch(getCartItem()),[])
-  console.log(cartList.cart);
 
   let orderListItem = cartList?.cart?.map(item =>(
-  <div className="row border">
-    <div className="col-md-6">
-        <h3> Name: { item.user.name } </h3>
-        <h3>Email: { item.user.email } </h3>
-        <h4>Address</h4>
-        <h5> { item.address.address_line1 } </h5>
-        <h5> { item.address.address_city } </h5>
-        <h5> { item.address.address_country } </h5>
-        <h5> { item.address.address_zip } </h5>
+  <div className="row border p-4">
+    <div className="col-md-6 d-flex align-items-center justify-content-evenly">
+        <div>
+          <h3>  { item.user.name } </h3>
+          <h3>  { item.user.email } </h3>
+        </div>
+        <div>
+          <h5> Village: { item.address.address_line1 } </h5>
+          <h5> City: { item.address.address_city } </h5>
+          <h5> Country: { item.address.address_country } </h5>
+          <h5> Zip: { item.address.address_zip } </h5>
+        </div>
     </div>
     <div className="col-md-6">
-      <ul class="list-group list-group-flush">
+      <ul class="list-group list-group-flush d-flex align-items-center justify-content-start">
           {
             item?.myCart?.map(cartItem =>(
                 <div>
-                  <li class="list-group-item"> { cartItem.quantity } </li>
-                  <li class="list-group-item"> { cartItem.cartItem.name } </li>
-                  <li class="list-group-item"> { cartItem.cartItem.price } </li>
+                  <li class="list-group-item"> <h4> Dish: { cartItem.cartItem.name } <br /> Quantity: { cartItem.quantity } </h4> </li>
                 </div>
                 ))
               }
