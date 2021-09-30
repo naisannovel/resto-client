@@ -6,6 +6,7 @@ const dishSlice = createSlice({
     name: 'dish',
     initialState: {
         dish: [],
+        allDishList: [],
         loading: false,
         dishSuccessMsg: null,
         dishErrMsg: null
@@ -19,6 +20,10 @@ const dishSlice = createSlice({
             dish.loading = false;
             dish.dishSuccessMsg = null;
             dish.dishErrMsg = null;
+        },
+        loadAllDishes: (dish, action) =>{
+            dish.allDishList = action.payload;
+            dish.loading = false;
         },
         dishSuccessMsg: (dish, action) =>{
             dish.dishSuccessMsg = action.payload;
@@ -51,7 +56,7 @@ const dishSlice = createSlice({
     }
 })
 
-export const { loading, dishList, dishSuccessMsg, dishErrMsg, dishAdd, dishPriceUpdate, dishDelete } = dishSlice.actions;
+export const { loading, dishList, dishSuccessMsg, dishErrMsg, dishAdd, dishPriceUpdate, dishDelete, loadAllDishes } = dishSlice.actions;
 export default dishSlice.reducer;
 
 export const fetchDish = (limit,skip) =>{
@@ -60,6 +65,14 @@ export const fetchDish = (limit,skip) =>{
         onStart: loading.type,
         onSuccess: dishList.type,
         onError: dishErrMsg.type
+    })
+}
+
+export const fetchAllDish = () =>{
+    return apiCallBegan({
+        url: `/dish`,
+        onStart: loading.type,
+        onSuccess: loadAllDishes.type,
     })
 }
 

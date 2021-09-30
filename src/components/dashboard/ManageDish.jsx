@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
-import { dishUpdate, deleteDishItem } from "../../store/dish";
+import { dishUpdate, deleteDishItem, fetchAllDish } from "../../store/dish";
 import { useDispatch } from "react-redux";
 
 
@@ -11,9 +11,11 @@ const ManageDish = () => {
 
   const dispatch = useDispatch();
 
+  useEffect(()=>dispatch(fetchAllDish()),[])
+
   const select = useSelector(state => {
     return {
-      dishItem: state?.dish?.dish
+      dishItem: state?.dish?.allDishList
     }
   })
 

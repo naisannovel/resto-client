@@ -5,7 +5,9 @@ import { reducer } from "./reducer";
 const store = ()=>{
     return configureStore({
         reducer: reducer,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiMiddleware)
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+            serializableCheck: false
+          }).concat(apiMiddleware)
     })
 }
 
