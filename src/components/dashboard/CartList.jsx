@@ -2,13 +2,15 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getCartItem } from "../../store/cart";
+import SpinnerSecondary from '../utilities/SpinnerSecondary';
 
 const OrderList = () => {
 
   const dispatch = useDispatch();
   const cartList = useSelector(state =>{
     return {
-      cart: state?.cart?.allCartItem
+      cart: state?.cart?.allCartItem,
+      loading: state.cart.loading
     }})
   useEffect(()=>dispatch(getCartItem()),[])
 
@@ -40,11 +42,21 @@ const OrderList = () => {
   </div>
 ));
 
+  let cartListPage = null;
+  if(!cartList.loading){
+    cartListPage =
+      <div>
+        <h1>Order List</h1>
+        <hr />
+        { orderListItem }
+      </div>
+  }else{
+    cartListPage = <SpinnerSecondary/>
+  }
+
   return (
     <div className="order__list__container">
-      <h1>Order List</h1>
-      <hr />
-      { orderListItem }
+      { cartListPage }
     </div>
   );
 };

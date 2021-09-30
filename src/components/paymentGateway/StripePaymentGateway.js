@@ -4,6 +4,7 @@ import StripeCheckout from "react-stripe-checkout";
 import { API } from "../../store/baseURL";
 import _ from 'lodash';
 import { saveCartItem } from "../../store/cart";
+import { loading } from "../../store/cart";
 
 
 const StripePaymentGateway = ({price}) => {
@@ -19,7 +20,7 @@ const StripePaymentGateway = ({price}) => {
     const headers = {
       "Content-Type": "application/json"
     };
-
+    dispatch(loading(true));
     return fetch(`${API}/payment`, {
       method: "POST",
       headers,

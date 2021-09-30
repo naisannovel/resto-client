@@ -5,6 +5,7 @@ import { faCheck, faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { dishUpdate, deleteDishItem, fetchAllDish } from "../../store/dish";
 import { useDispatch } from "react-redux";
+import SpinnerSecondary from '../utilities/SpinnerSecondary';
 
 
 const ManageDish = () => {
@@ -13,9 +14,10 @@ const ManageDish = () => {
 
   useEffect(()=>dispatch(fetchAllDish()),[])
 
-  const select = useSelector(state => {
+  const dishes = useSelector(state => {
     return {
-      dishItem: state?.dish?.allDishList
+      dishItem: state?.dish?.allDishList,
+      loading: state?.dish?.loading
     }
   })
 
@@ -24,7 +26,7 @@ const ManageDish = () => {
 
   const [InputPrice,setInputPrice] = useState({ price:'' })
 
-  const mapDishItem = select?.dishItem?.map((item, i) => 
+  const mapDishItem = dishes?.dishItem?.map((item, i) => 
     <tr key={item._id}>
       <th scope="row" style={{ width: "5%" }}>
       { i+1 }
@@ -54,7 +56,9 @@ const ManageDish = () => {
   )
       
 
-  let manageDishPage = 
+  let manageDishPage = null;
+  if(!dishes.loading){
+    manageDishPage =
       <Table striped>
           <thead>
             <tr>
@@ -68,6 +72,9 @@ const ManageDish = () => {
             { mapDishItem }
           </tbody>
         </Table>
+  }else{
+    manageDishPage = <SpinnerSecondary/>
+  }
 
   return (
     <div className="manage__dish__container">

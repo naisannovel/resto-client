@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDish, fetchMoreDish } from '../../store/dish';
 import DishesCard from './DishesCard';
+import SpinnerSecondary from '../utilities/SpinnerSecondary';
 
 const Dishes = () => {
     const [limit,setLimit] = useState(12);
@@ -9,19 +10,25 @@ const Dishes = () => {
     const dispatch = useDispatch();
     const dishes = useSelector( state => {
         return {
-            dish: state.dish.dish
+            dish: state.dish.dish,
+            loading: state.dish.loading
         }
     })
 
-    const dishesItem = dishes?.dish?.map(item =>(
-        <DishesCard 
-        _id={item._id}
-        name={item.name}
-        price={item.price}
-        about={item.about}
-        image={item.image?.img}
-        />
-    ))
+    let dishesItem = null;
+    if(!dishes.loading){
+    dishesItem = dishes?.dish?.map(item =>(
+                <DishesCard 
+                _id={item._id}
+                name={item.name}
+                price={item.price}
+                about={item.about}
+                image={item.image?.img}
+                />
+                ));
+    }else{
+        dishesItem = <SpinnerSecondary/>
+    }
 
     useEffect(()=> dispatch(fetchDish(6,0)),[])
 
@@ -45,7 +52,7 @@ const Dishes = () => {
                     }}
                     className='primary__btn mt-5' 
                     style={{background:"green"}}
-                    >Load More</button>
+                    >{dishes.loading ? <span className="fa fa-spinner fa-pulse px-4"></span> : "Load More" }</button>
                 }
             </div>
         </div>

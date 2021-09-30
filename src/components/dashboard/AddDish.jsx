@@ -1,12 +1,20 @@
 import React from "react";
-import { Form, FormGroup, Label } from "reactstrap";
+import { Alert, Form, FormGroup, Label } from "reactstrap";
 import { useForm } from "react-hook-form";
 import { dishAdded } from '../../store/dish';
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import SpinnerSecondary from '../utilities/SpinnerSecondary';
 
 
 const AddDish = () => {
   const dispatch = useDispatch();
+  const dish = useSelector(state =>{
+    return {
+      loading: state.dish.loading,
+      successMsg: state.dish.dishSuccessMsg
+    }
+  })
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -20,7 +28,9 @@ const AddDish = () => {
     reset()
   };
 
-  let addDishPage = 
+  let addDishPage = null;
+  if(!dish.loading){
+    addDishPage =
         <Form onSubmit={handleSubmit(onSubmit)}>
         <FormGroup>
           <Label for="name">Dish Name</Label>
@@ -46,10 +56,14 @@ const AddDish = () => {
         </FormGroup>
         <button className="primary__btn">Submit</button>
       </Form>
+  }else{
+    addDishPage = <SpinnerSecondary/>
+  }
   
   return (
     <div className="add__dish__container">
       <h1>Add Dish</h1>
+      {  dish.successMsg !== null ? <Alert color="success" style={{fontSize:'16px'}}> { dish.successMsg } </Alert>:'' }
       <hr />
       { addDishPage }
     </div>

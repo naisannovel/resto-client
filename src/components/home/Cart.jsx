@@ -4,14 +4,17 @@ import { Form, FormGroup, Label, Input } from "reactstrap";
 import Navbar from './Navbar';
 import { deleteCartItem, increaseItemQuantity, decreaseItemQuantity } from '../../store/cart';
 import StripePaymentGateway from "../paymentGateway/StripePaymentGateway";
+import Spinner from '../utilities/Spinner';
 
 const Cart = () => {
 
   const cart = useSelector(state =>{
     return {
-      cart: state.cart.cart
+      cart: state.cart.cart,
+      loading: state.cart.loading
     }
   })
+
   const dispatch = useDispatch();
 
   let totalCheckoutPrice = 0;
@@ -58,62 +61,72 @@ const Cart = () => {
     </div>
   ));
 
-  return (
-    <>
-      <Navbar/>
+  let cartPage = null;
+
+  if(!cart.loading){
+    cartPage = 
     <div className="cart__item__main__container container-fluid">
-      <div className="cart__item__container">
-        <div className="cart__item__details">
-          <h1>Shopping Cart</h1>
-          <hr />
-          <div className="cart__item__table__header">
-            <div style={{ width: "50%" }}>Product Details</div>
-            <div style={{ width: "25%", textAlign: "center" }}>Quantity</div>
-            <div style={{ width: "25%", textAlign: "center" }}>Total Price</div>
-          </div>
-          {cartItem}
+    <div className="cart__item__container">
+      <div className="cart__item__details">
+        <h1>Shopping Cart</h1>
+        <hr />
+        <div className="cart__item__table__header">
+          <div style={{ width: "50%" }}>Product Details</div>
+          <div style={{ width: "25%", textAlign: "center" }}>Quantity</div>
+          <div style={{ width: "25%", textAlign: "center" }}>Total Price</div>
         </div>
+        {cartItem}
       </div>
-      <div className="cart__item__checkout__container">
-        <div className="cart__checkout__container">
-          <h1>Checkout</h1>
-          <hr />
-          <Form>
-            <FormGroup className="mt-5">
-              <Label for="name">Name</Label>
-              <Input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Enter Your Name"
-              />
-            </FormGroup>
-            <FormGroup className="mt-3">
-              <Label for="number">Number</Label>
-              <Input
-                type="number"
-                name="number"
-                id="number"
-                placeholder="Enter Your Phone Number"
-              />
-            </FormGroup>
-            <FormGroup className="mt-3">
-              <Label for="address">Shipping Address</Label>
-              <Input type="textarea" rows="4" name="address" id="address" />
-            </FormGroup>
-          </Form>
-          <div className="cart__total__price">
-            <span>Total Price</span>
-            <span>$ { totalCheckoutPrice.toFixed(2) }</span>
-          </div>
-          <div style={{ textAlign: "center", marginTop: "15px" }}>
-            {
-              totalCheckoutPrice ? <StripePaymentGateway price={totalCheckoutPrice.toFixed(2)} /> : ''
-            }
-          </div>
+    </div>
+    <div className="cart__item__checkout__container">
+      <div className="cart__checkout__container">
+        <h1>Checkout</h1>
+        <hr />
+        <Form>
+          <FormGroup className="mt-5">
+            <Label for="name">Name</Label>
+            <Input
+              type="name"
+              name="name"
+              id="name"
+              placeholder="Enter Your Name"
+            />
+          </FormGroup>
+          <FormGroup className="mt-3">
+            <Label for="number">Number</Label>
+            <Input
+              type="number"
+              name="number"
+              id="number"
+              placeholder="Enter Your Phone Number"
+            />
+          </FormGroup>
+          <FormGroup className="mt-3">
+            <Label for="address">Shipping Address</Label>
+            <Input type="textarea" rows="4" name="address" id="address" />
+          </FormGroup>
+        </Form>
+        <div className="cart__total__price">
+          <span>Total Price</span>
+          <span>$ { totalCheckoutPrice.toFixed(2) }</span>
+        </div>
+        <div style={{ textAlign: "center", marginTop: "15px" }}>
+          {
+            totalCheckoutPrice ? <StripePaymentGateway price={totalCheckoutPrice.toFixed(2)} /> : ''
+          }
         </div>
       </div>
     </div>
+  </div>
+
+  }else{
+    cartPage = <Spinner/>
+  }
+
+  return (
+    <>
+      <Navbar/>
+      { cartPage }
     </>
   );
 };
