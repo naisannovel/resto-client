@@ -3,7 +3,7 @@ import spinner from '../../assets/spinner.gif';
 
 const SpinnerSecondary = () => {
     return (
-        <div>
+        <div style={{display:'flex',justifyContent:'center'}}>
             <img src={spinner} alt='spinner' />
         </div>
     );
