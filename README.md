@@ -1,6 +1,6 @@
 <h1>Resto.</h1>
 <br>
-<a href="https://restobd.web.app/">Preview</a> | <a href="https://hidden-brushlands-13945.herokuapp.com/">Api Server</a>
+<a href="https://restobd.web.app/" target='_blank'>Preview</a> | <a href="https://hidden-brushlands-13945.herokuapp.com/" target='_blank'>Api Server</a>
 <br>
 <h2>Features</h2>
  <ul>
@@ -34,4 +34,4 @@
     <li>Lodash</li>
   </ul>
 <br>
-<a href="https://github.com/naisannovel/resto-server">Server Site Repository</a>
+<a href="https://github.com/naisannovel/resto-server" target='_blank'>Server Site Repository</a>
