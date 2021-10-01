@@ -63,8 +63,8 @@ const Review = () => {
   return (
     <div className='review__main__container' id='review'>
       <div className="title">
-        <p>About Us</p>
-        <h3>why choose us?</h3>
+        <p>Customer's Review</p>
+        <h3>what they say</h3>
       </div>
       <Swiper
         slidesPerView={windowWidth <= 720 ? 1:3}
