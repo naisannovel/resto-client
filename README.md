@@ -6,6 +6,7 @@
  <ul>
    <li>user can add products to cart</li>
    <li>signup for successfully placed order</li>
+   <li>use credit card for pay</li>
    <li>admin can add, delete, update products through admin panel</li>
 </ul>
 <br>
