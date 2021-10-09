@@ -1,11 +1,16 @@
 <h1>Resto.</h1>
 <br>
-<a href="https://restobd.web.app/">Preview</a> | <a href="https://hidden-brushlands-13945.herokuapp.com/">Api Server</a>
+<a href="https://restobd.web.app/" target='_blank'>Preview</a> | <a href="https://hidden-brushlands-13945.herokuapp.com/" target='_blank'>Api Server</a>
+<br>
+<h3>Admin Account</h3>
+<p>Email: admin@mail.com</p>
+<p>Password: 11111</p>
 <br>
 <h2>Features</h2>
  <ul>
    <li>user can add products to cart</li>
    <li>signup for successfully placed order</li>
+   <li>use credit card for pay</li>
    <li>admin can add, delete, update products through admin panel</li>
 </ul>
 <br>
@@ -34,4 +39,4 @@
     <li>Lodash</li>
   </ul>
 <br>
-<a href="https://github.com/naisannovel/resto-server">Server Site Repository</a>
+<a href="https://github.com/naisannovel/resto-server" target='_blank'>Server Site Repository</a>
