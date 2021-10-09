@@ -34,7 +34,7 @@ const OrderList = () => {
           {
             item?.myCart?.map(cartItem =>(
                 <div>
-                  <li class="list-group-item"> <h4> Dish: { cartItem.cartItem.name } <br /> Quantity: { cartItem.quantity } </h4> </li>
+                  <li class="list-group-item"> <h4> Dish: { cartItem?.cartItem?.name } <br /> Quantity: { cartItem?.quantity } </h4> </li>
                 </div>
                 ))
               }
