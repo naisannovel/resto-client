@@ -44,7 +44,7 @@ const Dishes = () => {
                     { dishesItem }
                 </div>
                 {
-                    dishes.dish &&
+                    dishes.dish.length ?
                     <button 
                     onClick={()=>{
                         setSkip(skip+limit);
@@ -52,7 +52,7 @@ const Dishes = () => {
                     }}
                     className='primary__btn mt-5' 
                     style={{background:"green"}}
-                    >{dishes.loading ? <span className="fa fa-spinner fa-pulse fa-2x px-5"></span> : "Load More" }</button>
+                    >{ dishes.loading ? <span className="fa fa-spinner fa-pulse fa-2x px-5"></span> : "Load More" }</button> : ''
                 }
             </div>
         </div>
