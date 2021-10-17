@@ -49,7 +49,7 @@ const Hero = () => {
     ))
 
   return (
-    <div id='home'>
+    <div className='hero__main__container' id='home'>
       <Swiper
         navigation={true}
         pagination={{
