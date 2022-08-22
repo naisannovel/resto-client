@@ -1,7 +1,7 @@
 import React from "react";
 import { Alert, Form, FormGroup } from "reactstrap";
 import { useForm } from 'react-hook-form';
-import Navbar from '../home/Navbar';
+import Navbar from '../shared/Navbar';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../store/user";
@@ -72,7 +72,7 @@ const SignUp = () => {
             </div>
           </div>
           <div className="col-md-6"> 
-            <img src="assets/images/signup.jpg" alt="signup icon" />
+            <img src="assets/images/signup.svg" alt="signup icon" />
           </div>
         </div>
   }else{
@@ -82,7 +82,6 @@ const SignUp = () => {
   return (
     <div>
       { redirectUser() }
-        <Navbar/>
         {  userAuth.failedMsg !== null ? <Alert color="danger" style={{fontSize:'16px'}}> { userAuth.failedMsg } </Alert>:'' }
       { signupPage }
       

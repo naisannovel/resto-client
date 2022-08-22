@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <div>
         <div className='container footer__main__container'>
-            <div data-aos="fade-right" className="footer__content__container">
+            <div data-aos="flip-left" className="footer__content__container">
                 <h3>locations</h3>
                 <a href="#">Bangladesh</a>
                 <a href="#">USA</a>
@@ -22,10 +22,10 @@ const Footer = () => {
                 <h3>contact info</h3>
                 <a href="#">+88 01646-068658</a>
                 <a href="#">naisannovel@gmail.com</a>
-                <a href="#">naisan@yahoo.com</a>
+                <a href="#">novel@cistechltd.com</a>
                 <a href="#">Dhaka, Bangladesh - 1216</a>
             </div>
-            <div data-aos="fade-left" className="footer__content__container">
+            <div data-aos="flip-right" className="footer__content__container">
                 <h3>follow us</h3>
                 <a href="#">facebook</a>
                 <a href="#">twitter</a>

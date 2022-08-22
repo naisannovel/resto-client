@@ -48,20 +48,6 @@ const Dashboard = () => {
 
   return (
     <div className="sidebar__main__container">
-      <div className="sidebar__nav__container">
-        <Navbar style={{ width: "90%", margin: "0 auto" }}>
-        <div className="navbar__logo" onClick={()=>history.push('/')}>
-          <FontAwesomeIcon icon={faUtensils} />
-          <span>Resto.</span>
-        </div>
-          <NavbarText
-            className="mr-auto"
-            style={{ fontSize: "20px", textTransform: "capitalize" }}
-          >
-            { userInfo.name }
-          </NavbarText>
-        </Navbar>
-      </div>
       <div class="sidebar__container">
         <div className="sidebar">
           <div class="sidebar__nav">

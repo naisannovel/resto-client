@@ -1,22 +1,12 @@
 .sidebar__main__container {
-  & .sidebar__nav__container {
-    height: 70px;
-    width: 100%;
-    background-color: #ecf0f1;
-    position: fixed;
-    top: 0;
-    z-index: 11;
-    display: flex;
-    align-items: center;
-  }
   & .sidebar__container {
       position: relative;
-      top: 70px;
     & .sidebar {
       width: 25%;
-      height: calc(100vh - 70px);
+      height: calc(100vh - 65px);
       background-color: #f3f3f3;
       position: fixed;
+      bottom: 0;
       display: flex;
       justify-content: center;
       & .sidebar__nav{
@@ -46,9 +36,7 @@
     }
     & .sidebar__dashboard__routing{
         width: calc(100% - 25%);
-        position: absolute;
-        top: 0;
-        right: 0;
+        margin-left: auto;
     }
   }
 }

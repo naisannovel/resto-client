@@ -1,5 +1,17 @@
 .popular__dishes__main__container {
     background-color: #F0EEF0;
-    margin-top: 3rem;
-    padding: 3rem 0;
+    padding: 6rem 0;
+    & .main__dish__item_row{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 30px;
+        @include respond(tablet) {
+            grid-template-columns: repeat(2,1fr);
+            gap: 20px;
+        }
+        @include respond(phone) {
+            grid-template-columns: repeat(1,1fr);
+            row-gap: 20px;
+        }
+    }
 }

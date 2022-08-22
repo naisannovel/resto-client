@@ -22,7 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
   const inCart = cart?.cart?.find(item => item._id === _id);
 
   return (
-    <div className='col-md-4'>
+    <div>
       <Card className='dishes__card__container'>
         <CardImg
           top

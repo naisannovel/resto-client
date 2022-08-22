@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, FormGroup, Label, Input } from "reactstrap";
-import Navbar from './Navbar';
+import Navbar from '../shared/Navbar';
 import { deleteCartItem, increaseItemQuantity, decreaseItemQuantity } from '../../store/cart';
 import StripePaymentGateway from "../paymentGateway/StripePaymentGateway";
 import Spinner from '../utilities/Spinner';
@@ -126,7 +126,6 @@ const Cart = () => {
 
   return (
     <>
-      <Navbar/>
       { cartPage }
     </>
   );

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchDish, fetchMoreDish } from '../../store/dish';
 import DishesCard from './DishesCard';
 import SpinnerSecondary from '../utilities/SpinnerSecondary';
+import DishSkeleton from '../skeleton/DishSkeleton';
 
 const Dishes = () => {
     document.title = 'Resto.'
@@ -28,7 +29,7 @@ const Dishes = () => {
                 />
                 ));
     }else{
-        dishesItem = <SpinnerSecondary/>
+        dishesItem = <DishSkeleton/>
     }
 
     useEffect(()=> dispatch(fetchDish(6,0)),[])
@@ -40,7 +41,7 @@ const Dishes = () => {
                     <p>Our Dishes</p>
                     <h3>POPULAR DISHES</h3>
                 </div>
-                <div className="row g-5">
+                <div className="main__dish__item_row">
                     { dishesItem }
                 </div>
                 {

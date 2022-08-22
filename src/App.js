@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Main from './components/Main';
+import Main from './routers/Main';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     Aos.init({
-        duration: 1500
+        duration: 500
     });
   },[]);
 

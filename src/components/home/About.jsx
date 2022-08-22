@@ -12,14 +12,14 @@ const About = () => {
         <h3>why choose us?</h3>
       </div>
       <div className="row">
-        <div data-aos="fade-right" className="col-md-6 d-flex justify-content-center align-items-center">
+        <div data-aos="flip-left" className="col-md-6 d-flex justify-content-center align-items-center">
           <img
             src="assets/images/about.png"
             style={{ width: "100%", height: "100%" }}
             alt="aboutImage"
           />
         </div>
-        <div data-aos="fade-left" className="col-md-6 about__content__container">
+        <div data-aos="flip-right" className="col-md-6 about__content__container">
           <h3>best food in the country</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore,

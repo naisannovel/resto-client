@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, FormGroup } from "reactstrap";
 import { useForm } from 'react-hook-form';
-import Navbar from '../home/Navbar';
+import Navbar from '../shared/Navbar';
 import { Link } from "react-router-dom";
 import { auth } from "../../store/user";
 import { useDispatch } from "react-redux";
@@ -41,7 +41,7 @@ const Login = () => {
   loginPage =
     <div className="container row login__container m-auto">
       <div className="col-md-6 order-1">
-        <img src="assets/images/login.jpg" alt="login icon" />
+        <img src="assets/images/login.svg" alt="login icon" />
       </div>
       <div className="col-md-6">
         <div className="login__input__container">
@@ -80,7 +80,6 @@ const Login = () => {
   return (
     <div>
       { redirectUser() }
-      <Navbar/>
       {  userAuth.failedMsg !== null ? <Alert color="danger" style={{fontSize:'16px'}}> { userAuth.failedMsg } </Alert>:'' }
       { loginPage }
     </div>
