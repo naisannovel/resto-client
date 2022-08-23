@@ -71,7 +71,7 @@ const SignUp = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-6"> 
+          <div className="col-md-6 signup__img_container"> 
             <img src="assets/images/signup.svg" alt="signup icon" />
           </div>
         </div>

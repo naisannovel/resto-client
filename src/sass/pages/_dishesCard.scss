@@ -53,4 +53,24 @@
             font-size: 2rem;
         }
     }
+
+    & .flying-img{
+        position: absolute;
+        z-index: 11111;
+        animation: fly 1s ease-in-out;
+        top: 0;
+        left: 0;
+    }
+
+    @keyframes fly{
+        0%{
+            left: 0;
+            top: 0;
+        }
+        100%{
+            left: var(--left);
+            top: var(--top);
+            transform: scale(.0);
+        }
+    }
 }

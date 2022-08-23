@@ -10,8 +10,10 @@ import {
   CardTitle,
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCartAnimation } from "../utilities/addToCartAnimation";
 
   const DishesCard = ({ _id,image,name,about,price }) => {
+
   const cart = useSelector(state =>{
     return {
       cart: state.cart.cart
@@ -21,6 +23,11 @@ import { useDispatch, useSelector } from "react-redux";
 
   const inCart = cart?.cart?.find(item => item._id === _id);
 
+  const addToCartHandler = (e)=>{
+    addToCartAnimation(e);
+    dispatch(addToCart({_id,name,image,about,price,quantity:1}));
+  }
+
   return (
     <div>
       <Card className='dishes__card__container'>
@@ -29,6 +36,7 @@ import { useDispatch, useSelector } from "react-redux";
           width="100%"
           src={ `data:image/png;base64,${image}` }
           alt="dish"
+          id='main_img'
         />
         <CardBody>
           <CardTitle tag="h5" style={{textAlign:'left'}}> { name } </CardTitle>
@@ -39,7 +47,7 @@ import { useDispatch, useSelector } from "react-redux";
               <button className="primary__btn" style={{background:'green'}}>
                 <FontAwesomeIcon icon={faCheck} />{' '}
                 Added</button>:
-              <button onClick={()=>dispatch(addToCart({_id,name,image,about,price,quantity:1}))} className="primary__btn">
+              <button onClick={(e) => addToCartHandler(e)} className="primary__btn">
                 <FontAwesomeIcon icon={faShoppingCart} />{' '}
                 Add To Cart</button>
             }

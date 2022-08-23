@@ -40,7 +40,7 @@ const Login = () => {
   if(!userAuth.loading){
   loginPage =
     <div className="container row login__container m-auto">
-      <div className="col-md-6 order-1">
+      <div className="col-md-6 order-1 login__img_container">
         <img src="assets/images/login.svg" alt="login icon" />
       </div>
       <div className="col-md-6">

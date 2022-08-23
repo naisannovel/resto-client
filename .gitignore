@@ -11,6 +11,8 @@
 # production
 /build
 
+/src/components/utilities/addToCartAnimation.js
+
 # misc
 .DS_Store
 .env.local

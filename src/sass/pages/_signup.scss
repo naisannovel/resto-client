@@ -3,11 +3,17 @@
     padding: 0;
     width: 100%;
     height: calc(100vh - 65px);
-    display: grid;
-    place-items: center;
-      & img {
-        width: 60%;
-        height: 60%;
+
+    display: flex;
+    align-items: center;
+
+      & .signup__img_container{
+        text-align: center;
+        & img {
+          width: 60%;
+          height: 60%;
+        }
+
       }
       & .signup__input__container {
         margin: 8rem;

@@ -50,7 +50,7 @@ const [toggle,setToggle] = useState(false);
         </div>
         <div className="navbar__icon">
             {/* <div className='navbar-icon-hover'><FontAwesomeIcon icon={faHeart} /></div> */}
-            <div className='navbar__cart__icon navbar-icon-hover' onClick={()=> history.push('/cart')}>
+            <div className='navbar__cart__icon navbar-icon-hover' id="cart" onClick={()=> history.push('/cart')}>
                 <FontAwesomeIcon icon={faShoppingCart} />
                 <span className='navbar__cart__count__container'> { cart.cart.length } </span>
             </div>
